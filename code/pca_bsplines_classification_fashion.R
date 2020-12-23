@@ -9,25 +9,25 @@ library(caret)
 
 
 
-### LOAD DATA
+### Load Data
 fashion = read.csv("./archive/fashion-mnist_test.csv", header = TRUE)
 
 end = ncol(fashion)
-# test an image
+
+
+# Test an image
 img <- matrix(as.matrix(fashion[80,2:end]), nrow = 28, ncol = 28)
 imageShow(img)
 
 
-## separate labels
+## Separate labels
 label = 1  ##first column
 response <- fashion[,label]
 fashion <- fashion[,-label]
 
 
-
 p <- dim(fashion)[2]      #Number of parameters
 n <- dim(fashion)[1]      #Number of observations 
-
 
 
 ####################
@@ -37,11 +37,11 @@ n <- dim(fashion)[1]      #Number of observations
 library(splines)
 x = seq(0,1,length.out = p)
 
-#### Using 10 knots
+
+#### B-splines using 10 knots
 k=10
 knots = seq(0,1,length.out = k)  ##interior knots only  
 B = bs(x, knots = knots, degree = 3)[,1:(k+2)]  ###  degree 3 for cubic polynomial
-
 
 Bcoef = matrix(0,dim(fashion)[1],k+2)
 for(i in 1:dim(fashion)[1])
@@ -53,7 +53,6 @@ Bsp_model = cbind.data.frame(Bcoef,response)
 
 
 
-####
 ### Split train/test 80%/20%
 set.seed(12345)
 s = sample.int(n,n*0.8, replace=FALSE)  
@@ -78,8 +77,8 @@ y_test = test[,label]
 lasso = cv.glmnet(x_train, y_train, family="multinomial", alpha = 1, intercept = FALSE)
 lambdal = lasso$lambda.min
 lambdal
-coef.lasso = matrix(coef(lasso, s = lambdal)) ##[2:(p+1)]
-#coef(lasso, s = lambdal)
+coef.lasso = matrix(coef(lasso, s = lambdal))
+
 
 lasso = glmnet(x_train, y_train, family = "multinomial", alpha = 1, intercept = FALSE)
 plot(lasso, xvar = "lambda", label = TRUE, main="B-splines" )
@@ -92,18 +91,21 @@ mse_lassob
 y_true = as.factor(y_test)
 y_pred = as.factor(y_lasso)
 
+## Confusion Matrix
 cfm <-confusionMatrix(y_pred, y_true)
 as.table(cfm)
 
 
-##coef(lasso, s = lambdal)
+## Review the coefficients
+coef(lasso, s = lambdal)
 
 
 
-####################################################################
+
 ####################
 ####    PCA     ####
 ####################
+
 
 ### Split train/test 80%/20%
 #reuse s, same split as before
@@ -111,26 +113,22 @@ trainp = fashion[s,]
 testp = fashion[-s,]
 x_trainp = as.matrix(trainp,dim(trainp)[1],dim(trainp)[2])
 x_testp = as.matrix(testp,dim(testp)[1],dim(testp)[2])
-#y_trainp = response[s,]  ### same as before
-#y_testp = response[-s,]
 
-pca_res <- prcomp(x_trainp, rank. = 12)  ###, scale=TRUE)  ## no need to scale?
-#pca_res$x
 
+## Principal Components
+pca_res <- prcomp(x_trainp, rank. = 12) 
 
 np <- dim(pca_res$rotation)
 x_trainrot = x_trainp%*%as.matrix(pca_res$rotation,np[1],np[2])
 x_testrot = x_testp%*%as.matrix(pca_res$rotation,np[1],np[2])
 
-#all.equal(as.matrix(pca_res$x), x_trainrot)
 
-###################
 ### Lasso PCA
 lassop = cv.glmnet(x_trainrot, y_train, family="multinomial", alpha = 1, intercept = FALSE)
 lambdalp = lassop$lambda.min
 lambdalp
-coef.lassop = matrix(coef(lassop, s = lambdalp)) ##[2:(p+1)]
-#coef(lassop, s = lambdalp)
+coef.lassop = matrix(coef(lassop, s = lambdalp))
+
 
 lassop = glmnet(x_trainrot, y_train, family = "multinomial", alpha = 1, intercept = FALSE)
 plot(lassop, xvar = "lambda", label = TRUE, main="PCA" )
@@ -143,10 +141,11 @@ mse_lassop
 y_true = as.factor(y_test)
 y_pred = as.factor(y_lassop)
 
+## Confusion Matrix
 cfmp <-confusionMatrix(y_pred, y_true)
 as.table(cfmp)
 
-
-
+## Review the coefficients
+coef(lassop, s = lambdalp)
 
  
