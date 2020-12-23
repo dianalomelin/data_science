@@ -16,7 +16,17 @@ Similarly, regularization can help adjust model complexity to avoid overfitting 
 
 
 ### 2. Experiment
-I used the test data set of 10000 observations for this experiment, split 80/20 for training/testing. Combining dimensionality reduction and regularization methods, we deploy simpler models that achieve sparsity and shrinkage. For the first method, I used B-splines with 10 knots to reduce dimensionality and then applied LASSO regularization. 
+I used the test data set of 10000 observations for this experiment, split 80/20 for training/testing. Combining dimensionality reduction and regularization methods, we deploy simpler models that achieve sparsity and shrinkage. For the first method, I used B-splines with 10 knots to reduce dimensionality and then applied LASSO regularization. Each observation is assigned one of the following labels:
+- 0 T-shirt/top
+- 1 Trouser
+- 2 Pullover
+- 3 Dress
+- 4 Coat
+- 5 Sandal
+- 6 Shirt
+- 7 Sneaker
+- 8 Bag
+- 9 Ankle boot
 
  
 
@@ -192,15 +202,16 @@ as.table(cfm)
 
 <div class="row">
   <div class="column" float="left" >
-    <img src="images/bsp9.png?raw=true" width="450" height="250">
+    <img src="images/cm_bsp.JPG?raw=true" width="450" height="250">
   </div>
   <div class="column" float="left">
-    <img src="images/pca9.png?raw=true" width="450" height="250">
+    <img src="images/cm_pca.JPG?raw=true" width="450" height="250">
   </div>
 
 </div>
 
 MSE B-Splines: 0.5905
+
 MSE PCA: 0.752
 ### 4. Conclusions
 
