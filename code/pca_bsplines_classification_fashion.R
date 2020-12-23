@@ -10,26 +10,23 @@ library(caret)
 
 
 ### LOAD DATA
-skin = read.csv("./hmnist_28_28_L.csv/hmnist_28_28_L.csv", header = TRUE)
+fashion = read.csv("./archive/fashion-mnist_test.csv", header = TRUE)
 
-
+end = ncol(fashion)
 # test an image
-img <- matrix(as.matrix(skin[200,-1]), nrow = 28, ncol = 28)
+img <- matrix(as.matrix(fashion[80,2:end]), nrow = 28, ncol = 28)
 imageShow(img)
 
-A<- skin[200,-1]
-
-A[-1]
 
 ## separate labels
-label = ncol(skin)
-response <- skin[,label]
-skin <- skin[,-1]
+label = 1  ##first column
+response <- fashion[,label]
+fashion <- fashion[,-label]
 
 
 
-p <- dim(skin)[2]      #Number of parameters
-n <- dim(skin)[1]      #Number of observations 
+p <- dim(fashion)[2]      #Number of parameters
+n <- dim(fashion)[1]      #Number of observations 
 
 
 
@@ -43,20 +40,18 @@ x = seq(0,1,length.out = p)
 #### Using 10 knots
 k=10
 knots = seq(0,1,length.out = k)  ##interior knots only  
-B = bs(x, knots = knots, degree = 3)[,1:(k+2)]  ###  degree is 3 for cubic polynomial
+B = bs(x, knots = knots, degree = 3)[,1:(k+2)]  ###  degree 3 for cubic polynomial
 
 
-Bcoef = matrix(0,dim(skin)[1],k+2)
-for(i in 1:dim(skin)[1])
+Bcoef = matrix(0,dim(fashion)[1],k+2)
+for(i in 1:dim(fashion)[1])
 {
-  Bcoef[i,] = solve(t(B)%*%B)%*%t(B)%*%t(as.matrix(skin[i,]))
+  Bcoef[i,] = solve(t(B)%*%B)%*%t(B)%*%t(as.matrix(fashion[i,]))
 }
 
 Bsp_model = cbind.data.frame(Bcoef,response)  
 
-####
-#label = ncol(skin)
-#n <- nrow(skin)
+
 
 ####
 ### Split train/test 80%/20%
@@ -87,7 +82,7 @@ coef.lasso = matrix(coef(lasso, s = lambdal)) ##[2:(p+1)]
 #coef(lasso, s = lambdal)
 
 lasso = glmnet(x_train, y_train, family = "multinomial", alpha = 1, intercept = FALSE)
-plot(lasso, xvar = "lambda", label = TRUE)
+plot(lasso, xvar = "lambda", label = TRUE, main="B-splines" )
 abline(v = log(lambdal))
 
 y_lasso = predict(lasso, x_test, s = lambdal, type="class")
@@ -101,7 +96,7 @@ cfm <-confusionMatrix(y_pred, y_true)
 as.table(cfm)
 
 
-coef(lasso, s = lambdal)
+##coef(lasso, s = lambdal)
 
 
 
@@ -112,8 +107,8 @@ coef(lasso, s = lambdal)
 
 ### Split train/test 80%/20%
 #reuse s, same split as before
-trainp = skin[s,]
-testp = skin[-s,]
+trainp = fashion[s,]
+testp = fashion[-s,]
 x_trainp = as.matrix(trainp,dim(trainp)[1],dim(trainp)[2])
 x_testp = as.matrix(testp,dim(testp)[1],dim(testp)[2])
 #y_trainp = response[s,]  ### same as before
@@ -138,7 +133,7 @@ coef.lassop = matrix(coef(lassop, s = lambdalp)) ##[2:(p+1)]
 #coef(lassop, s = lambdalp)
 
 lassop = glmnet(x_trainrot, y_train, family = "multinomial", alpha = 1, intercept = FALSE)
-plot(lassop, xvar = "lambda", label = TRUE)
+plot(lassop, xvar = "lambda", label = TRUE, main="PCA" )
 abline(v = log(lambdalp))
 
 y_lassop = predict(lassop, x_testrot, s = lambdalp, type="class")
