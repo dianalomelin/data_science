@@ -31,6 +31,6 @@ The following plots show the regularization for the reduced coefficients on each
 
 Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. 
 
-You can find the R code [here](/code/pca_bsplines_classification_fashion.sm).
+You can find the R code [here](/code/pca_bsplines_classification_fashion.R).
 
 For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
