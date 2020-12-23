@@ -11,12 +11,12 @@ Another approach is to fit a polynomial regression using splines which are linea
 Similarly, regularization can help adjust model complexity to avoid overfitting allowing to remove coefficients that have little information about the response variable. One such form of regularization, the LASSO (Least Absolute Shrinkage and Selection Operator) shrinks large coefficients and truncates small coefficients to zero.
 
 
-### 2. The experiment
+### 2. Experiment
 Combining dimensionality reduction and regularization methods, we deploy simpler models that achieve sparcity and shrinkage. For the first method, I used B-splines with 10 knots to reduce dimensionality and then applied LASSO regularization. 
 
  
 
-```R
+```{r}
 library(splines)
 x = seq(0,1,length.out = p)
 
@@ -36,7 +36,7 @@ Bsp_model = cbind.data.frame(Bcoef,response)
 
 ```
 
-``` R
+```{r}
 ### Lasso B-splines
 lasso = cv.glmnet(x_train, y_train, family="multinomial", alpha = 1, intercept = FALSE)
 lambdal = lasso$lambda.min
@@ -49,7 +49,7 @@ abline(v = log(lambdal))
 ```
 
 Similarly, I applied Principal Component Analysis and kept the 12th largest eigenvectors to do a LASSO regularization with them. 
-```{r }
+```{r}
 ## Principal Components
 pca_res <- prcomp(x_trainp, rank. = 12) 
 
@@ -57,7 +57,7 @@ np <- dim(pca_res$rotation)
 x_trainrot = x_trainp%*%as.matrix(pca_res$rotation,np[1],np[2])
 x_testrot = x_testp%*%as.matrix(pca_res$rotation,np[1],np[2])
 ```
-``` {r }
+``` {r}
 ### Lasso PCA
 lassop = cv.glmnet(x_trainrot, y_train, family="multinomial", alpha = 1, intercept = FALSE)
 lambdalp = lassop$lambda.min
@@ -70,10 +70,20 @@ plot(lassop, xvar = "lambda", label = TRUE, main="PCA" )
 abline(v = log(lambdalp))
 ```
 
-### 3. The results
-The following plots show the regularization for the reduced coefficients on each algorithm and for the different response values.
+### 3. Results
+The following plots show the regularization for the reduced coefficients on each algorithm and for the different response values. We can also review the Confusion Matrix for both methods and their MSEs. We observe that the PCA method has better accuracy than the B-splines one. 
 
 <img src="images/dummy_thumbnail.jpg?raw=true"/>
+
+<div class="row">
+  <div class="column">
+    <img src="images/dummy_thumbnail.jpg?raw=true" alt="Snow" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="images/dummy_thumbnail.jpg?raw=true" alt="Forest" style="width:100%">
+  </div>
+
+</div>
 
 ### 4. Conclusions
 
