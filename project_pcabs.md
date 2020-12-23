@@ -1,3 +1,7 @@
+<div class="centered">
+<img src="images/fashion.JPG?raw=true" style="width:100%">
+</div>
+
 ## PCA vs B-splines dimension reduction in a fashion data set
 
 **Project description:** I've been recently learning about regularization methods paired with dimensionality reduction algorithms like PCA and B-splines. I found this collection of images intended as a substitute to the MNIST handwritten digits used extensively in the Data Science community and I wanted to apply these algorithms comparatively to classify these images.
@@ -73,17 +77,18 @@ abline(v = log(lambdalp))
 ### 3. Results
 The following plots show the regularization for the reduced coefficients on each algorithm and for the different response values. We can also review the Confusion Matrix for both methods and their MSEs. We observe that the PCA method has better accuracy than the B-splines one. 
 
-<img src="images/dummy_thumbnail.jpg?raw=true"/>
 
 <div class="row">
-  <div class="column">
-    <img src="images/bsp0.png?raw=true"  style="width:40%">
+  <div class="column" float="left" >
+    <img src="images/bsp0.png?raw=true" style="width:50%">
   </div>
-  <div class="column">
-    <img src="images/pca0.png?raw=true"  style="width:40%">
+  <div class="column" float="left">
+    <img src="images/pca0.png?raw=true" style="width:50%">
   </div>
 
 </div>
+
+
 
 ### 4. Conclusions
 
