@@ -12,14 +12,62 @@ Similarly, regularization can help adjust model complexity to avoid overfitting 
 
 
 ### 2. The experiment
-Combining dimensionality reduction and regularization methods, we deploy simpler models that achieve sparcity and shrinkage. To compare both methods, I used B-splines with 10 knots to reduce dimensionality and then applied LASSO regularization. Similarly, I applied Principal Component Analysis and kept the 12th largest eigenvectors to do a LASSO regularization with them. 
+Combining dimensionality reduction and regularization methods, we deploy simpler models that achieve sparcity and shrinkage. For the first method, I used B-splines with 10 knots to reduce dimensionality and then applied LASSO regularization. 
 
  
 
-```javascript
-if (isAwesome){
-  return true
+```R
+library(splines)
+x = seq(0,1,length.out = p)
+
+
+#### B-splines using 10 knots
+k=10
+knots = seq(0,1,length.out = k)  ##interior knots only  
+B = bs(x, knots = knots, degree = 3)[,1:(k+2)]  ###  degree 3 for cubic polynomial
+
+Bcoef = matrix(0,dim(fashion)[1],k+2)
+for(i in 1:dim(fashion)[1])
+{
+  Bcoef[i,] = solve(t(B)%*%B)%*%t(B)%*%t(as.matrix(fashion[i,]))
 }
+
+Bsp_model = cbind.data.frame(Bcoef,response)  
+
+```
+
+``` R
+### Lasso B-splines
+lasso = cv.glmnet(x_train, y_train, family="multinomial", alpha = 1, intercept = FALSE)
+lambdal = lasso$lambda.min
+lambdal
+coef.lasso = matrix(coef(lasso, s = lambdal))
+
+lasso = glmnet(x_train, y_train, family = "multinomial", alpha = 1, intercept = FALSE)
+plot(lasso, xvar = "lambda", label = TRUE, main="B-splines" )
+abline(v = log(lambdal))
+```
+
+Similarly, I applied Principal Component Analysis and kept the 12th largest eigenvectors to do a LASSO regularization with them. 
+```{r }
+## Principal Components
+pca_res <- prcomp(x_trainp, rank. = 12) 
+
+np <- dim(pca_res$rotation)
+x_trainrot = x_trainp%*%as.matrix(pca_res$rotation,np[1],np[2])
+x_testrot = x_testp%*%as.matrix(pca_res$rotation,np[1],np[2])
+```
+``` {r }
+### Lasso PCA
+lassop = cv.glmnet(x_trainrot, y_train, family="multinomial", alpha = 1, intercept = FALSE)
+lambdalp = lassop$lambda.min
+lambdalp
+coef.lassop = matrix(coef(lassop, s = lambdalp))
+
+
+lassop = glmnet(x_trainrot, y_train, family = "multinomial", alpha = 1, intercept = FALSE)
+plot(lassop, xvar = "lambda", label = TRUE, main="PCA" )
+abline(v = log(lambdalp))
 ```
 
 ### 3. The results
