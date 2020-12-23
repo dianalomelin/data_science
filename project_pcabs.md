@@ -16,7 +16,7 @@ Similarly, regularization can help adjust model complexity to avoid overfitting 
 
 
 ### 2. Experiment
-Combining dimensionality reduction and regularization methods, we deploy simpler models that achieve sparcity and shrinkage. For the first method, I used B-splines with 10 knots to reduce dimensionality and then applied LASSO regularization. 
+I used the test data set of 10000 observations for this experiment, split 80/20 for training/testing. Combining dimensionality reduction and regularization methods, we deploy simpler models that achieve sparsity and shrinkage. For the first method, I used B-splines with 10 knots to reduce dimensionality and then applied LASSO regularization. 
 
  
 
@@ -75,21 +75,133 @@ abline(v = log(lambdalp))
 ```
 
 ### 3. Results
-The following plots show the regularization for the reduced coefficients on each algorithm and for the different response values. We can also review the Confusion Matrix for both methods and their MSEs. We observe that the PCA method has better accuracy than the B-splines one. 
-
+The following plots show the regularization for the reduced coefficients on each algorithm and for the different response values at different lambdas - the tunning parameter that controls sparsity.
 
 <div class="row">
   <div class="column" float="left" >
-    <img src="images/bsp0.png?raw=true" style="width:50%">
+    <img src="images/bsp0.png?raw=true" width="450" height="250">
   </div>
   <div class="column" float="left">
-    <img src="images/pca0.png?raw=true" style="width:50%">
+    <img src="images/pca0.png?raw=true" width="450" height="250">
+  </div>
+
+</div>
+
+<div class="row">
+  <div class="column" float="left" >
+    <img src="images/bsp1.png?raw=true" width="450" height="250">
+  </div>
+  <div class="column" float="left">
+    <img src="images/pca1.png?raw=true" width="450" height="250">
+  </div>
+
+</div>
+
+<div class="row">
+  <div class="column" float="left" >
+    <img src="images/bsp2.png?raw=true" width="450" height="250">
+  </div>
+  <div class="column" float="left">
+    <img src="images/pca2.png?raw=true" width="450" height="250">
+  </div>
+
+</div>
+
+<div class="row">
+  <div class="column" float="left" >
+    <img src="images/bsp3.png?raw=true" width="450" height="250">
+  </div>
+  <div class="column" float="left">
+    <img src="images/pca3.png?raw=true" width="450" height="250">
+  </div>
+
+</div>
+
+<div class="row">
+  <div class="column" float="left" >
+    <img src="images/bsp4.png?raw=true" width="450" height="250">
+  </div>
+  <div class="column" float="left">
+    <img src="images/pca4.png?raw=true" width="450" height="250">
+  </div>
+
+</div>
+<div class="row">
+  <div class="column" float="left" >
+    <img src="images/bsp5.png?raw=true" width="450" height="250">
+  </div>
+  <div class="column" float="left">
+    <img src="images/pca5.png?raw=true" width="450" height="250">
+  </div>
+
+</div>
+<div class="row">
+  <div class="column" float="left" >
+    <img src="images/bsp6.png?raw=true" width="450" height="250">
+  </div>
+  <div class="column" float="left">
+    <img src="images/pca6.png?raw=true" width="450" height="250">
+  </div>
+
+</div>
+
+<div class="row">
+  <div class="column" float="left" >
+    <img src="images/bsp7.png?raw=true" width="450" height="250">
+  </div>
+  <div class="column" float="left">
+    <img src="images/pca7.png?raw=true" width="450" height="250">
+  </div>
+
+</div>
+
+<div class="row">
+  <div class="column" float="left" >
+    <img src="images/bsp8.png?raw=true" width="450" height="250">
+  </div>
+  <div class="column" float="left">
+    <img src="images/pca8.png?raw=true" width="450" height="250">
+  </div>
+
+</div>
+
+<div class="row">
+  <div class="column" float="left" >
+    <img src="images/bsp9.png?raw=true" width="450" height="250">
+  </div>
+  <div class="column" float="left">
+    <img src="images/pca9.png?raw=true" width="450" height="250">
   </div>
 
 </div>
 
 
+We can also review the Confusion Matrix for both methods and their MSE on the test data set. We observe that the PCA method has better accuracy than B-splines. 
+```{r}
+y_lasso = predict(lasso, x_test, s = lambdal, type="class")
+mse_lassob = sum((y_test==y_lasso)^2)/length(y_test)
+mse_lassob
 
+y_true = as.factor(y_test)
+y_pred = as.factor(y_lasso)
+
+## Confusion Matrix
+cfm <-confusionMatrix(y_pred, y_true)
+as.table(cfm)
+```
+
+<div class="row">
+  <div class="column" float="left" >
+    <img src="images/bsp9.png?raw=true" width="450" height="250">
+  </div>
+  <div class="column" float="left">
+    <img src="images/pca9.png?raw=true" width="450" height="250">
+  </div>
+
+</div>
+
+MSE B-Splines: 0.5905
+MSE PCA: 0.752
 ### 4. Conclusions
 
 Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. 
