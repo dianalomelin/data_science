@@ -77,10 +77,10 @@ The following plots show the regularization for the reduced coefficients on each
 
 <div class="row">
   <div class="column">
-    <img src="images/dummy_thumbnail.jpg?raw=true" alt="Snow" style="width:100%">
+    <img src="images/bsp0.png?raw=true"  style="width:40%">
   </div>
   <div class="column">
-    <img src="images/dummy_thumbnail.jpg?raw=true" alt="Forest" style="width:100%">
+    <img src="images/pca0.png?raw=true"  style="width:40%">
   </div>
 
 </div>
