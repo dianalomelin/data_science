@@ -16,7 +16,7 @@ Similarly, regularization can help adjust model complexity to avoid overfitting 
 
 
 ### 2. Experiment
-I used the test data set of 10000 observations for this experiment, split in 80/20% for training/testing. Combining dimensionality reduction and regularization methods, we deploy simpler models that achieve sparsity and shrinkage. For the first method, I used B-splines with 10 knots to reduce dimensionality and then applied LASSO regularization. Each observation is assigned one of the following labels:
+For simplicity, I used only the test data set of 10000 observations for the experiment, split in 80/20 for training/testing. Combining dimensionality reduction and regularization methods, we deploy simpler models that achieve sparsity and shrinkage. For the first method, I used B-splines with 10 knots to reduce dimensionality and then applied LASSO regularization. Each observation is assigned one of the following labels:
 - 0 T-shirt/top
 - 1 Trouser
 - 2 Pullover
@@ -187,6 +187,11 @@ The following plots show the regularization for the reduced coefficients on each
 
 
 We can also review the Confusion Matrix for both methods and their MSE on the test data set. We observe that the PCA method achieves better accuracy than B-splines. 
+
+MSE B-Splines: 0.5905
+
+MSE PCA: 0.752
+
 ```{r}
 y_lasso = predict(lasso, x_test, s = lambdal, type="class")
 mse_lassob = sum((y_test==y_lasso)^2)/length(y_test)
@@ -211,12 +216,12 @@ as.table(cfm)
 </div>
 
 
-MSE B-Splines: 0.5905
 
-MSE PCA: 0.752
 ### 4. Conclusions
 
-The algorithms presented in this exercise were able to reduce dimensionality of the data set of 10000 images and further select only the most important ones applying LASSO regularization. The PCA method performed better than B-splines suggesting that this data set might be better described through the eigenvectors that explain their variance rather than fitting a polynomial regression.
+The algorithms presented in this exercise were able to reduce dimensionality of the data set of 10000 images from 784 (28x28 px) to 12 coefficients (12 knots, 10 internal and 12 components for PCA) and further select only the most important ones applying LASSO regularization. The PCA method performed better than B-splines suggesting that this data set might be better described through the eigenvectors that explain their variance rather than fitting a polynomial regression. 
+
+For PCA, we can also adjust the number of coefficients until we get a higher cumulative proportion of explained variance. With 12 components, we get 74% of variance explained, that aligns with the accuracy of the model.
 
 I'll be interesting to observe how the LASSO regularization alone performs as well as PCA on its own as an extension.
 
