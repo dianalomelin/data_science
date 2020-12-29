@@ -19,7 +19,7 @@
 
 ### Visual Analytics
 
-- [Say What You Mean](http://example.com/)
+- [Say What You Mean](/code/saywhatyoumean/saywhatyoumean.html)
 - [Project 2 Title](http://example.com/)
 - [Project 3 Title](http://example.com/)
 
