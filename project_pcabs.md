@@ -2,7 +2,9 @@
 <img src="images/fashion.JPG?raw=true" style="width:100%">
 </div>
 
-## PCA vs B-splines dimension reduction in a fashion data set
+## PCA vs B-splines in a fashion data set
+
+### A comparative approach on dimensionality reduction and regularization.
 
 **Project description:** I've been recently learning about regularization methods paired with dimensionality reduction algorithms like PCA and B-splines. I found this collection of images intended as a substitute to the MNIST handwritten digits used extensively in the Data Science community and I wanted to apply these algorithms comparatively to classify these images.
 The Fashion-MNIST is a dataset of Zalando's fashion articles images. Each example is a 28 x 28 grayscale image, associated with a label of 10 classes. Learn more about this dataset from Kaggle [here](https://www.kaggle.com/zalando-research/fashionmnist?select=fashion-mnist_train.csv).
