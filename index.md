@@ -4,7 +4,7 @@
 
 ### Data Science 
 
-[PCA vs B-splines in a fashion data set](/project_1)
+[PCA vs B-splines in a fashion data set](/project_pcabs)
 <img src="images/fashion.JPG?raw=true"/>
 
 ---
