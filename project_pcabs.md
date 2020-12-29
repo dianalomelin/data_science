@@ -8,15 +8,15 @@
 The Fashion-MNIST is a dataset of Zalando's fashion articles images. Each example is a 28 x 28 grayscale image, associated with a label of 10 classes. Learn more about this dataset from Kaggle [here](https://www.kaggle.com/zalando-research/fashionmnist?select=fashion-mnist_train.csv).
 
 ### 1. Dimensionality Reduction and Regularization.
-When presented with a data set that has many dimensions it becomes difficult to process it. High-dimensional data usually has a low dimensional structure where the relevant information is contained in fewer dimensions that can be extracted to conduct further analysis, the rest are treated as non-informative and noise. One common approach to dimensionality reduction is Principal Component Analysis (PCA), which transforms the original data projecting it onto a set of orthogonal axes.
+When presented with a data set that has many dimensions it becomes difficult to process it. High-dimensional data usually has a low dimensional structure where the relevant information is contained in fewer dimensions that can be extracted to conduct further analysis, the rest are treated as non-informative and noise. One common approach to dimensionality reduction is Principal Component Analysis (PCA), which transforms the original data projecting it onto a set of orthogonal axes. We select the vectors that have the greatest explained variance and discard the rest.
 
-Another approach is to fit a polynomial regression using splines which are linear combinations of piecewise polynomial functions that allow for local fitting. Basis splines are computationally more efficient than splines and since any spline function can be expressed as a linear combination of B-splines, they are the preferred method.
+Another approach is to fit a polynomial regression using splines which are linear combinations of piecewise polynomial functions that allow for local fitting. Basis splines are computationally more efficient than splines and since any spline function can be expressed as a linear combination of B-splines, they are a preferred method.
 
 Similarly, regularization can help adjust model complexity to avoid overfitting allowing to remove coefficients that have little information about the response variable. One such form of regularization, the LASSO (Least Absolute Shrinkage and Selection Operator) shrinks large coefficients and truncates small coefficients to zero.
 
 
 ### 2. Experiment
-I used the test data set of 10000 observations for this experiment, split 80/20 for training/testing. Combining dimensionality reduction and regularization methods, we deploy simpler models that achieve sparsity and shrinkage. For the first method, I used B-splines with 10 knots to reduce dimensionality and then applied LASSO regularization. Each observation is assigned one of the following labels:
+I used the test data set of 10000 observations for this experiment, split in 80/20% for training/testing. Combining dimensionality reduction and regularization methods, we deploy simpler models that achieve sparsity and shrinkage. For the first method, I used B-splines with 10 knots to reduce dimensionality and then applied LASSO regularization. Each observation is assigned one of the following labels:
 - 0 T-shirt/top
 - 1 Trouser
 - 2 Pullover
@@ -186,7 +186,7 @@ The following plots show the regularization for the reduced coefficients on each
 </div>
 
 
-We can also review the Confusion Matrix for both methods and their MSE on the test data set. We observe that the PCA method has better accuracy than B-splines. 
+We can also review the Confusion Matrix for both methods and their MSE on the test data set. We observe that the PCA method achieves better accuracy than B-splines. 
 ```{r}
 y_lasso = predict(lasso, x_test, s = lambdal, type="class")
 mse_lassob = sum((y_test==y_lasso)^2)/length(y_test)
@@ -210,13 +210,15 @@ as.table(cfm)
 
 </div>
 
+
 MSE B-Splines: 0.5905
 
 MSE PCA: 0.752
 ### 4. Conclusions
 
-Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. 
+The algorithms presented in this exercise were able to reduce dimensionality of the data set of 10000 images and further select only the most important ones applying LASSO regularization. The PCA method performed better than B-splines suggesting that this data set might be better described through the eigenvectors that explain their variance rather than fitting a polynomial regression.
+
+I'll be interesting to observe how the LASSO regularization alone performs as well as PCA on its own as an extension.
 
 You can find the R code [here](/code/pca_bsplines_classification_fashion.R).
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
