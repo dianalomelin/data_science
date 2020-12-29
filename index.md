@@ -19,7 +19,7 @@
 
 ### Visual Analytics
 
-- [Say What You Mean](/code/saywhatyoumean/saywhatyoumean.html)
+- [Say What You Mean](/project_saywh.md)
   A visual project to perform sentiment analysis on @realDonaldTrump Twitter account.
 - [Project 2 Title](http://example.com/)
 - [Project 3 Title](http://example.com/)
