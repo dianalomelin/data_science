@@ -21,8 +21,6 @@ Quickly identifying significant changes in the population was a task given to th
 
 Sliding the threshold value from 1.2 to 3.8 doesn’t add much value, instead the range is labeled from less to more sensitive. As the slider moves the chart updates with shaded areas of positive and negative shift in the general public sentiment.
 
-I've been recently learning about regularization methods paired with dimensionality reduction algorithms like PCA and B-splines. I found this collection of images intended as a substitute to the MNIST handwritten digits used extensively in the Data Science community and I wanted to apply these algorithms comparatively to classify these images.
-The Fashion-MNIST is a dataset of Zalando's fashion articles images. Each example is a 28 x 28 grayscale image, associated with a label of 10 classes. Learn more about this dataset from Kaggle [here](https://www.kaggle.com/zalando-research/fashionmnist?select=fashion-mnist_train.csv).
-
+A major goal of this project was to effectively show how a user either influences or is influenced by public opinion. Exploring different sensitivities for change detection and seeing how these line up with the plotted individuals tweets helps to shed light on this question.
 
 You can find the interactive webpage [here](/code/saywhatyoumean/saywhatyoumean.html)
