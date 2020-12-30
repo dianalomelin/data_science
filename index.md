@@ -24,7 +24,7 @@
 
 ---
 [Tableau charts](http://public.tableau.com/profile/diana.lomelin)
-##### A collection of visualizations using Tableau.
+##### A collection of visualizations using Tableau, featuring a Kiva Crowdfunding Loans Analysis.
 
 ---
 ### Simulation
