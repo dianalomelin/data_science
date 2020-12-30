@@ -25,6 +25,7 @@ A major goal of this project was to effectively show how a user either influence
 
 [Visit the interactive webpage](/code/saywhatyoumean/saywhatyoumean.html)
 
-In order to obtain the raw twitter data for each of the 4 hashtags we chose to analyze, we utilizedthe twitterscraper libray. Read more about  at https://github.com/taspinar/twitterscraper.
+In order to obtain the raw twitter data for each of the 4 hashtags we chose to analyze, we utilized the twitterscraper libray. Read more about it at https://github.com/taspinar/twitterscraper.
+
 For more detail on the sentiment model we used, please see https://github.com/cjhutto/vaderSentiment. 
 
