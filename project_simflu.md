@@ -68,5 +68,5 @@ to ensuring that authorities can prevent as many deaths as possible and take pre
 With our current model, we could update variables to admit a different population size, a higher probability of infection, more days of being infectious, more initial kids that are infectious on Day 1 and even a larger area of infectious spread.
 To improve the model, we could model weekends to allow for those 2 days of no exposure, we could expand to a larger physical area (beyond the 10 x 10 grid), and include compartments and attributes to model incubation periods, asymptomatic entities, traveling, mask use, etc. Another interesting experiment to model would be super-spreader events.
 
-You can find the ARENA code [here](/code/simulationflu/Pandemic in a school setting.doe).
+You can find the ARENA code [here](/code/simulationflu/PandemicSchool.doe).
 
