@@ -7,12 +7,14 @@
 [PCA vs B-splines in a fashion data set](/project_pcabs)
 <!--<img src="images/fashion.JPG?raw=true"/>-->
 ##### A comparative approach for classification using dimensionality reduction and regularization.
+<!--
 ---
-<!--[Project 2 Title](/sample)
-<img src="images/dummy_thumbnail.jpg?raw=true"/>  
+[Random Forest classification of Traffic Accidents](/project_randfo)
+##### A co
 
 ---
-[Project 3 Title](http://example.com/)
+[Denoising heatmaps through regularization algorithms](/project_heat)
+##### A co
 -->
 
 ---
