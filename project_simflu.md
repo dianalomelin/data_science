@@ -2,91 +2,38 @@
 <img src="images/logo_simflu.JPG?raw=true" style="width:100%">
 </div>
 
-## PCA vs B-splines in a fashion data set
 
-### A comparative approach on dimensionality reduction and regularization.
+## Pandemic Flu Spread
 
-
-**Project description:** I've been recently learning about regularization methods paired with dimensionality reduction algorithms like PCA and B-splines. I found this collection of images intended as a substitute to the MNIST handwritten digits used extensively in the Data Science community and I wanted to apply these algorithms comparatively to classify these images.
-The Fashion-MNIST is a dataset of Zalando's fashion articles images. Each example is a 28 x 28 grayscale image, associated with a label of 10 classes. Learn more about this dataset from Kaggle [here](https://www.kaggle.com/zalando-research/fashionmnist?select=fashion-mnist_train.csv).
+### Analyzing the spread of infection in a hypothetical classroom.
 
 
-### 1. Dimensionality Reduction and Regularization.
-When presented with a data set that has many dimensions it becomes difficult to process it. High-dimensional data usually has a low dimensional structure where the relevant information is contained in fewer dimensions that can be extracted to conduct further analysis, the rest are treated as non-informative and noise. One common approach to dimensionality reduction is Principal Component Analysis (PCA), which transforms the original data projecting it onto a set of orthogonal axes. We select the vectors that have the greatest explained variance and discard the rest.
+**Project description:** The issue of the current pandemic is of paramount importance to societies around the globe as governments and healthcare industries try frantically to find successful treatments and make a viable vaccine that would allow us to return to our normal lives.
 
-Another approach is to fit a polynomial regression using splines which are linear combinations of piecewise polynomial functions that allow for local fitting. Basis splines are computationally more efficient than splines and since any spline function can be expressed as a linear combination of B-splines, they are a preferred method.
+This project was presented in a grad school Simulation and Modeling class with another team member. We decided to work on the Pandemic Flu Spread project for its current relevance, aiming to understand the basic factors involved in a setting as small as a classroom and to be able to reproduce those in a simulation. We came across the SIR model that was proposed in the 1920s and studied Agent Based models to conceive a solution that would combine the two approaches.
 
-Similarly, regularization can help adjust model complexity to avoid overfitting allowing to remove coefficients that have little information about the response variable. One such form of regularization, the LASSO (Least Absolute Shrinkage and Selection Operator) shrinks large coefficients and truncates small coefficients to zero.
+We used Arena Simulation Software v.16, licensed to us for academic purposes. You can find more about it [here] (https://www.arenasimulation.com/)
 
 
-### 2. Experiment
-For simplicity, I used only the test data set of 10000 observations for the experiment, split in 80/20 for training/testing. Combining dimensionality reduction and regularization methods, we deploy simpler models that achieve sparsity and shrinkage. For the first method, I used B-splines with 10 knots to reduce dimensionality and then applied LASSO regularization. Each observation is assigned one of the following labels:
-- 0 T-shirt/top
-- 1 Trouser
-- 2 Pullover
-- 3 Dress
-- 4 Coat
-- 5 Sandal
-- 6 Shirt
-- 7 Sneaker
-- 8 Bag
-- 9 Ankle boot
+### 1. Problem Definition
+We start with a classroom of 21 elementary school kids. 20 of the kids are healthy (and susceptible to flu) on Day 1. Tommy (the 21st kid) walks in with the flu and starts interacting with his potential victims. To keep things simple, let's suppose that Tommy comes to school every day (whether or not he's sick) and will be infectious for 3 days. There are 3 chances for Tommy to infect the other kids on Days 1, 2, and 3. Suppose that the probability that he infects any individual susceptible kid on any of the three days is p = 0.02; and suppose that all kids and days are independent (so that you have i.i.d. Bern(p) trials).
 
+### 2. Simulation Steps and Assumptions
+1. This is a simple model demonstrating how to mimic the effect of an epidemic in a school setting. We used the SIR notation to denote Susceptible, Infectious and Recovered entities and we keep track of each group with counters.
+Initially 20 kids are created and then they are assigned coordinates in the system, they will move around in the system having a nice day at school. The arrivals happen all together, since we are not modeling a process with service times, we disregard the effect of a distribution for arrivals.
+Tommy, the infectious kid, is created and arrives at school too. He's placed in a random coordinate space and then the Susceptible kids next to him can become Infectious. They in turn can infect other Susceptible kids.
+They go to school from 9:00 am to 3:00 pm. Then go home for 18 hours. We did not model weekends.
+They remain sick for 3 days, starting the next day and then recover with immunity.
+The simulation ends when there are no more infectious kids or all of them have recovered.
+2. When the kids are initially created, they will choose a random starting location. The arrayed variable v Grid shows the SID status of the kid at each space in the grid. Susceptible kids are yellow, Infectious are red and Recovered are green. After choosing the location, the kid will check the v Grid to make sure that the chosen location is not already occupied. If it is, they will select another location.
+3. The kids will delay for certain number of minutes at its initial location and then move to a new location within "v Step" (2) places of its current location. Through expressions we evaluate if the new location is off the grid and wrap it to the other side of the grid. These expressions evaluate the newly assigned location and reassign it if needed.
+4. After the Susceptible kids have moved to their new location, it will then check if the new location is next to an Infectious (Search). If it is, the kid will become infectious with a certain probability (2%). Since their infectious period will begin the next day, we keep an attribute to flag them, and update their SID status to infectious when sent home
+5. All kids pick a new random location and move to it if available. Then we'll check that it's still school hours and continue or send them home.
+6. When sent home, we clear the grid and update counters and status. We also check if they're all recovered or no one is infectious anymore to end the simulation.
+7. A simulation clock was created to keep track of periods.
+8. A 10 x 10 variable array (v Grid) is used to define the coordinate space for the system (Classroom). This provides 100 spaces available for occupation. As the kids are created, they will set the value of the variable space they occupy to -1 for Susceptible, 1 for Infectious and 2 for Recovered. The entities will occupy the coordinates and look to move again. If they cannot find a space to move, they will repeat the attempt to move again.
  
 
-```{r}
-library(splines)
-x = seq(0,1,length.out = p)
-
-
-#### B-splines using 10 knots
-k=10
-knots = seq(0,1,length.out = k)  ##interior knots only  
-B = bs(x, knots = knots, degree = 3)[,1:(k+2)]  ###  degree 3 for cubic polynomial
-
-Bcoef = matrix(0,dim(fashion)[1],k+2)
-for(i in 1:dim(fashion)[1])
-{
-  Bcoef[i,] = solve(t(B)%*%B)%*%t(B)%*%t(as.matrix(fashion[i,]))
-}
-
-Bsp_model = cbind.data.frame(Bcoef,response)  
-
-```
-
-```{r}
-### Lasso B-splines
-lasso = cv.glmnet(x_train, y_train, family="multinomial", alpha = 1, intercept = FALSE)
-lambdal = lasso$lambda.min
-lambdal
-coef.lasso = matrix(coef(lasso, s = lambdal))
-
-lasso = glmnet(x_train, y_train, family = "multinomial", alpha = 1, intercept = FALSE)
-plot(lasso, xvar = "lambda", label = TRUE, main="B-splines" )
-abline(v = log(lambdal))
-```
-
-Similarly, I applied Principal Component Analysis and kept the 12th largest eigenvectors to do a LASSO regularization with them. 
-```{r}
-## Principal Components
-pca_res <- prcomp(x_trainp, rank. = 12) 
-
-np <- dim(pca_res$rotation)
-x_trainrot = x_trainp%*%as.matrix(pca_res$rotation,np[1],np[2])
-x_testrot = x_testp%*%as.matrix(pca_res$rotation,np[1],np[2])
-```
-``` {r}
-### Lasso PCA
-lassop = cv.glmnet(x_trainrot, y_train, family="multinomial", alpha = 1, intercept = FALSE)
-lambdalp = lassop$lambda.min
-lambdalp
-coef.lassop = matrix(coef(lassop, s = lambdalp))
-
-
-lassop = glmnet(x_trainrot, y_train, family = "multinomial", alpha = 1, intercept = FALSE)
-plot(lassop, xvar = "lambda", label = TRUE, main="PCA" )
-abline(v = log(lambdalp))
-```
 
 ### 3. Results
 The following plots show the regularization for the reduced coefficients on each algorithm and for the different response values at different lambdas - the tunning parameter that controls sparsity.
@@ -223,11 +170,20 @@ as.table(cfm)
 
 ### 4. Conclusions
 
-The algorithms presented in this exercise were able to reduce dimensionality of the data set of 10000 images from 784 (28x28 px) to 12 coefficients (12 knots, 10 internal and 12 components for PCA) and further select only the most important ones applying LASSO regularization. The PCA method performed better than B-splines suggesting that this data set might be better described through the eigenvectors that explain their variance rather than fitting a polynomial regression. 
+*Real-world epidemic studies*
+The SIR Model can be useful to approximate the spread of a disease, but is based on an ideal scenario and depends on certain assumptions that will not apply to a real-life situation where many other complex factors are present, for example:
+- Asymptomatic and mildly infectious people
+- Incubation periods
+- Different age groups with different immune responses
+- Traveling individuals, births and deaths
+- Hospital system capacity
+When facing a pandemic, normally only the more severe cases seek help, which delays the detection and severity of the spread since the milder cases won’t get officially diagnosed. This might lead to public alarm since the severe cases are more likely to result in deaths. There’s also the issue of lack of accurate testing and its distribution on new diseases. Undoubtedly, the timeline of confirmed cases will be dependent on local testing policies and availability.
+We can see the many challenges that a model will need to address to match official published numbers. But even if models are far from perfect, insights from mathematical modeling are vital
+to ensuring that authorities can prevent as many deaths as possible and take preventive measures to avoid healthcare systems becoming overwhelmed.
 
-For PCA, we can also adjust the number of coefficients until we get a higher cumulative proportion of explained variance. With 12 components, we get 74% of variance explained, that aligns with the accuracy of the model.
+*Future work*
+With our current model, we could update variables to admit a different population size, a higher probability of infection, more days of being infectious, more initial kids that are infectious on Day 1 and even a larger area of infectious spread.
+To improve the model, we could model weekends to allow for those 2 days of no exposure, we could expand to a larger physical area (beyond the 10 x 10 grid), and include compartments and attributes to model incubation periods, asymptomatic entities, traveling, mask use, etc. Another interesting experiment to model would be super-spreader events.
 
-I'll be interesting to observe how the LASSO regularization alone performs as well as PCA on its own as an extension.
-
-You can find the R code [here](/code/pca_bsplines_classification_fashion.R).
+You can find the ARENA code [here](/code/pca_bsplines_classification_fashion.R).
 
