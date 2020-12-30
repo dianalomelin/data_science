@@ -25,7 +25,7 @@
 ##### Visualizations for Sentiment Analysis on @realDonaldTrump Twitter account.
 
 ---
-[Tableau charts](http://public.tableau.com/profile/diana.lomelin)
+[Tableau viz](http://public.tableau.com/profile/diana.lomelin)
 ##### A collection of visualizations using Tableau, featuring a Kiva Crowdfunding Loans Analysis.
 
 ---
