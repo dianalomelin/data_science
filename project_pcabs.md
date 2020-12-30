@@ -6,10 +6,10 @@
 
 ### A comparative approach on dimensionality reduction and regularization.
 
-<p style="text-align: justify;">
+
 **Project description:** I've been recently learning about regularization methods paired with dimensionality reduction algorithms like PCA and B-splines. I found this collection of images intended as a substitute to the MNIST handwritten digits used extensively in the Data Science community and I wanted to apply these algorithms comparatively to classify these images.
 The Fashion-MNIST is a dataset of Zalando's fashion articles images. Each example is a 28 x 28 grayscale image, associated with a label of 10 classes. Learn more about this dataset from Kaggle [here](https://www.kaggle.com/zalando-research/fashionmnist?select=fashion-mnist_train.csv).
-Left-aligned</p>
+
 
 ### 1. Dimensionality Reduction and Regularization.
 When presented with a data set that has many dimensions it becomes difficult to process it. High-dimensional data usually has a low dimensional structure where the relevant information is contained in fewer dimensions that can be extracted to conduct further analysis, the rest are treated as non-informative and noise. One common approach to dimensionality reduction is Principal Component Analysis (PCA), which transforms the original data projecting it onto a set of orthogonal axes. We select the vectors that have the greatest explained variance and discard the rest.
