@@ -8,12 +8,12 @@
 <!--<img src="images/fashion.JPG?raw=true"/>-->
 ##### A comparative approach for classification using dimensionality reduction and regularization.
 ---
-[Project 2 Title](/sample)
-<img src="images/dummy_thumbnail.jpg?raw=true"/>
+<!--[Project 2 Title](/sample)
+<img src="images/dummy_thumbnail.jpg?raw=true"/>  
 
 ---
 [Project 3 Title](http://example.com/)
-
+-->
 
 ---
 ### Visual Analytics
