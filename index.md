@@ -1,8 +1,8 @@
 ## Portfolio
 
 ---
-
 ### Data Science 
+---
 
 [PCA vs B-splines in a fashion data set](/project_pcabs)
 <!--<img src="images/fashion.JPG?raw=true"/>-->
@@ -16,9 +16,9 @@
 
 
 ---
-
 ### Visual Analytics
 ---
+
 [Say What You Mean](/project_saywh.md)
 ##### Visualizations for Sentiment Analysis on @realDonaldTrump Twitter account.
 
@@ -28,7 +28,8 @@
 
 ---
 ### Simulation
-[Project 3 Title](http://example.com/)
+---
+[Pandemic Flu Spread](/project_simflu.md)
 
 ---
 
