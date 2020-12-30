@@ -59,7 +59,7 @@ We can observe that the average of infected and recovered kids is 5.16, and Susc
 The following figure shows the kids that are still infectious on a certain day. By day 4, we subtract Tommy, who has recovered after 3 days. By day 5 we remove the kids that got infected on day 1.
 
 <div class="centered">
-<img src="images/sim/perday.jpg?raw=true" width="300" height="150">
+<img src="images/sim/perday.jpg?raw=true" width="400" height="250">
 </div>
 
 One advantage to modeling with agents is that our simulation allows for other experiments when updating the delay time, closer to a real-life situation where kids would have multiple contact times through the day. If kept at 5 minutes, all or mostly all kids get sick and recover by day 8 maximum. 
