@@ -30,7 +30,7 @@
 ### Simulation
 ---
 [Pandemic Flu Spread](/project_simflu.md)
-##### Understanding how a pathogen spreads through a simulation model on ARENA.
+##### Understanding how a pathogen spreads through a simulation model using ARENA.
 ---
 
 
