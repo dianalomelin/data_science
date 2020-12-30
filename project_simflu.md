@@ -35,18 +35,13 @@ The simulation ends when there are no more infectious kids or all of them have r
  
 
 
-### 3. Results
-The following plots show the regularization for the reduced coefficients on each algorithm and for the different response values at different lambdas - the tunning parameter that controls sparsity.
+### 3. Output Analysis
+Our Agent Based model does not match the experiment of having 20 trials on the first day, since the entities move randomly inside the classroom, we cannot force a single contact time of Tommy with each kid per day. To approximate this behavior, we ran the simulation limiting it to 1 day, and found that keeping a Delay of 25 minutes will produce an average contact times (trials) of 20.6.
 
-<div class="row">
-  <div class="column" float="left" >
-    <img src="images/bsp0.png?raw=true" width="450" height="250">
-  </div>
-  <div class="column" float="left">
-    <img src="images/pca0.png?raw=true" width="450" height="250">
-  </div>
+<img src="images/sim/day1.JPG?raw=true" width="450" height="250">
 
-</div>
+
+
 
 
 ### 4. Conclusions
