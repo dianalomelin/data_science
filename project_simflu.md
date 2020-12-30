@@ -12,7 +12,7 @@
 
 This project was presented in a grad school Simulation and Modeling class with another team member. We decided to work on the Pandemic Flu Spread project for its current relevance, aiming to understand the basic factors involved in a setting as small as a classroom and to be able to reproduce those in a simulation. We came across the SIR model that was proposed in the 1920s and studied Agent Based models to conceive a solution that would combine the two approaches.
 
-We used Arena Simulation Software v.16, licensed to us for academic purposes. You can find more about it [here] (https://www.arenasimulation.com/)
+We used Arena Simulation Software v.16, licensed to us for academic purposes. You can find more about it [here](https://www.arenasimulation.com/)
 
 
 ### 1. Problem Definition
@@ -38,11 +38,44 @@ The simulation ends when there are no more infectious kids or all of them have r
 ### 3. Output Analysis
 Our Agent Based model does not match the experiment of having 20 trials on the first day, since the entities move randomly inside the classroom, we cannot force a single contact time of Tommy with each kid per day. To approximate this behavior, we ran the simulation limiting it to 1 day, and found that keeping a Delay of 25 minutes will produce an average contact times (trials) of 20.6.
 
-<img src="images/sim/day1.JPG?raw=true" width="450" height="250">
+<div class="centered">
+<img src="images/sim/day1.jpg?raw=true" width="300" height="150">
+</div>
 
+We can observe that the infected number of kids is close to our formula above for Day 1, including Tommy: 1.4
+Similarly, if we run the simulation for only a couple of days, we obtain the following numbers. As before, we compare the average number of infected kids with our formula above, that gave us 1.94.
 
+<div class="centered">
+<img src="images/sim/day2.jpg?raw=true" width="300" height="150">
+</div>
 
+Running the simulation until there are no more Infectious or all kids have recovered:
 
+<div class="centered">
+<img src="images/sim/toend.jpg?raw=true" width="300" height="150">
+</div>
+
+We can observe that the average of infected and recovered kids is 5.16, and Susceptible kids that didn’t get sick average 15.84. The epidemic lasts 14.5 days maximum.
+The following figure shows the kids that are still infectious on a certain day. By day 4, we subtract Tommy, who has recovered after 3 days. By day 5 we remove the kids that got infected on day 1.
+
+<div class="centered">
+<img src="images/sim/perday.jpg?raw=true" width="300" height="150">
+</div>
+
+One advantage to modeling with agents is that our simulation allows for other experiments when updating the delay time, closer to a real-life situation where kids would have multiple contact times through the day. If kept at 5 minutes, all or mostly all kids get sick and recover by day 8 maximum. 
+
+<div class="centered">
+<img src="images/sim/5min.jpg?raw=true" width="300" height="150">
+</div>
+
+If increased to 10 minutes, the simulation ends with most Infectious that Recovered, and a few Susceptible that didn't get it.
+
+<div class="centered">
+<img src="images/sim/10min.jpg?raw=true" width="300" height="150">
+</div>
+
+Conversely, if we change the delay to once a day (for 6 hours of school – delay of 360 minutes), almost no one else gets infected (since the contact times reduce to 2 or less considering the 10 x 10 area), and the epidemic ends when Tommy recovers, without infecting anyone else.
+With the probability of success given, we expect roughly 100 contact times with an infectious for 2 kids to get infected. In any delay case, we observe that we get our first infectious (after Tommy) at around 65 contact times.
 
 ### 4. Conclusions
 
