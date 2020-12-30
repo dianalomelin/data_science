@@ -6,7 +6,7 @@
 
 [PCA vs B-splines in a fashion data set](/project_pcabs)
 <!--<img src="images/fashion.JPG?raw=true"/>-->
-
+##### A comparative approach on dimensionality reduction and regularization.
 ---
 [Project 2 Title](/sample)
 <img src="images/dummy_thumbnail.jpg?raw=true"/>
@@ -20,10 +20,11 @@
 ### Visual Analytics
 ---
 [Say What You Mean](/project_saywh.md)
-#### Visualizations for Sentiment Analysis on @realDonaldTrump Twitter account.
+##### Visualizations for Sentiment Analysis on @realDonaldTrump Twitter account.
 
 ---
 [Tableau charts](http://public.tableau.com/profile/diana.lomelin)
+##### A collection of visualizations using Tableau.
 
 ---
 ### Simulation
