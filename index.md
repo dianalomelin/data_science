@@ -21,7 +21,7 @@
 ---
 [Say What You Mean](/project_saywh.md)
 #### Visualizations for Sentiment Analysis on @realDonaldTrump Twitter account.
-<img src="images/logo_saywh.JPG?raw=true"/>
+
 ---
 [Tableau charts](http://public.tableau.com/profile/diana.lomelin)
 
