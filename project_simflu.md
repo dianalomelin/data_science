@@ -48,129 +48,11 @@ The following plots show the regularization for the reduced coefficients on each
 
 </div>
 
-<div class="row">
-  <div class="column" float="left" >
-    <img src="images/bsp1.png?raw=true" width="450" height="250">
-  </div>
-  <div class="column" float="left">
-    <img src="images/pca1.png?raw=true" width="450" height="250">
-  </div>
-
-</div>
-
-<div class="row">
-  <div class="column" float="left" >
-    <img src="images/bsp2.png?raw=true" width="450" height="250">
-  </div>
-  <div class="column" float="left">
-    <img src="images/pca2.png?raw=true" width="450" height="250">
-  </div>
-
-</div>
-
-<div class="row">
-  <div class="column" float="left" >
-    <img src="images/bsp3.png?raw=true" width="450" height="250">
-  </div>
-  <div class="column" float="left">
-    <img src="images/pca3.png?raw=true" width="450" height="250">
-  </div>
-
-</div>
-
-<div class="row">
-  <div class="column" float="left" >
-    <img src="images/bsp4.png?raw=true" width="450" height="250">
-  </div>
-  <div class="column" float="left">
-    <img src="images/pca4.png?raw=true" width="450" height="250">
-  </div>
-
-</div>
-<div class="row">
-  <div class="column" float="left" >
-    <img src="images/bsp5.png?raw=true" width="450" height="250">
-  </div>
-  <div class="column" float="left">
-    <img src="images/pca5.png?raw=true" width="450" height="250">
-  </div>
-
-</div>
-<div class="row">
-  <div class="column" float="left" >
-    <img src="images/bsp6.png?raw=true" width="450" height="250">
-  </div>
-  <div class="column" float="left">
-    <img src="images/pca6.png?raw=true" width="450" height="250">
-  </div>
-
-</div>
-
-<div class="row">
-  <div class="column" float="left" >
-    <img src="images/bsp7.png?raw=true" width="450" height="250">
-  </div>
-  <div class="column" float="left">
-    <img src="images/pca7.png?raw=true" width="450" height="250">
-  </div>
-
-</div>
-
-<div class="row">
-  <div class="column" float="left" >
-    <img src="images/bsp8.png?raw=true" width="450" height="250">
-  </div>
-  <div class="column" float="left">
-    <img src="images/pca8.png?raw=true" width="450" height="250">
-  </div>
-
-</div>
-
-<div class="row">
-  <div class="column" float="left" >
-    <img src="images/bsp9.png?raw=true" width="450" height="250">
-  </div>
-  <div class="column" float="left">
-    <img src="images/pca9.png?raw=true" width="450" height="250">
-  </div>
-
-</div>
-
-
-We can also review the Confusion Matrix for both methods and their MSE on the test data set. We observe that the PCA method achieves better accuracy than B-splines. 
-
-MSE B-Splines: 0.5905
-
-MSE PCA: 0.752
-
-```{r}
-y_lasso = predict(lasso, x_test, s = lambdal, type="class")
-mse_lassob = sum((y_test==y_lasso)^2)/length(y_test)
-mse_lassob
-
-y_true = as.factor(y_test)
-y_pred = as.factor(y_lasso)
-
-## Confusion Matrix
-cfm <-confusionMatrix(y_pred, y_true)
-as.table(cfm)
-```
-
-<div class="row">
-  <div class="column" float="left" >
-    <img src="images/cm_bsp.JPG?raw=true" width="450" height="250">
-  </div>
-  <div class="column" float="left">
-    <img src="images/cm_pca.JPG?raw=true" width="450" height="250">
-  </div>
-
-</div>
-
-
 
 ### 4. Conclusions
 
-*Real-world epidemic studies*
+**Real-world epidemic studies**
+
 The SIR Model can be useful to approximate the spread of a disease, but is based on an ideal scenario and depends on certain assumptions that will not apply to a real-life situation where many other complex factors are present, for example:
 - Asymptomatic and mildly infectious people
 - Incubation periods
@@ -181,9 +63,10 @@ When facing a pandemic, normally only the more severe cases seek help, which del
 We can see the many challenges that a model will need to address to match official published numbers. But even if models are far from perfect, insights from mathematical modeling are vital
 to ensuring that authorities can prevent as many deaths as possible and take preventive measures to avoid healthcare systems becoming overwhelmed.
 
-*Future work*
+**Future work**
+
 With our current model, we could update variables to admit a different population size, a higher probability of infection, more days of being infectious, more initial kids that are infectious on Day 1 and even a larger area of infectious spread.
 To improve the model, we could model weekends to allow for those 2 days of no exposure, we could expand to a larger physical area (beyond the 10 x 10 grid), and include compartments and attributes to model incubation periods, asymptomatic entities, traveling, mask use, etc. Another interesting experiment to model would be super-spreader events.
 
-You can find the ARENA code [here](/code/pca_bsplines_classification_fashion.R).
+You can find the ARENA code [here](/code/simulationflu/Pandemic in a school setting.doe).
 
