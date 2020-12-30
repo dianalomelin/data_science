@@ -5,7 +5,7 @@
 ### Data Science 
 
 [PCA vs B-splines in a fashion data set](/project_pcabs)
-<img src="images/fashion.JPG?raw=true"/>
+<!--<img src="images/fashion.JPG?raw=true"/>-->
 
 ---
 [Project 2 Title](/sample)
@@ -13,16 +13,21 @@
 
 ---
 [Project 3 Title](http://example.com/)
-<img src="images/dummy_thumbnail.jpg?raw=true"/>
+
 
 ---
 
 ### Visual Analytics
+---
+[Say What You Mean](/project_saywh.md)
+#### Visualizations for Sentiment Analysis on @realDonaldTrump Twitter account.
+<img src="images/logo_saywh.JPG?raw=true"/>
+---
+[Tableau charts](http://public.tableau.com/profile/diana.lomelin)
 
-- [Say What You Mean](/project_saywh.md)
-  A visual project to perform sentiment analysis on @realDonaldTrump Twitter account.
-- [Project 2 Title](http://example.com/)
-- [Project 3 Title](http://example.com/)
+---
+### Simulation
+[Project 3 Title](http://example.com/)
 
 ---
 
