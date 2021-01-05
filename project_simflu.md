@@ -3,14 +3,14 @@
 </div>
 
 
-## Pandemic Flu Spread
+## Classroom Flu Spread
 
 ### Analyzing the spread of infection in a hypothetical classroom.
 
 
 **Project description:** The issue of the current pandemic is of paramount importance to societies around the globe as governments and healthcare industries try frantically to find successful treatments and make a viable vaccine that would allow us to return to our normal lives.
 
-This project was presented in a grad school Simulation and Modeling class with another team member. We decided to work on the Pandemic Flu Spread project for its current relevance, aiming to understand the basic factors involved in a setting as small as a classroom and to be able to reproduce those in a simulation. We came across the SIR model that was proposed in the 1920s and studied Agent Based models to conceive a solution that would combine the two approaches.
+This project was presented in a grad school Simulation and Modeling class with another team member. We decided to work on the Flu Spread project for its current relevance, aiming to understand the basic factors involved in a setting as small as a classroom and to be able to reproduce those in a simulation. We came across the SIR model that was proposed in the 1920s and studied Agent Based models to conceive a solution that would combine the two approaches.
 
 We used Arena Simulation Software v.16, licensed to us for academic purposes. You can find more about it [here](https://www.arenasimulation.com/)
 
