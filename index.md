@@ -4,17 +4,19 @@
 ### Data Science 
 ---
 
+[Random Forest classification of Traffic Accidents](/project_ranfortraff)
+##### Predicting the severity of a traffic accident using Random Forest in Python Scikit-learn.
+---
+
 [PCA vs B-splines in a fashion data set](/project_pcabs)
 <!--<img src="images/fashion.JPG?raw=true"/>-->
-##### A comparative approach for classification using dimensionality reduction and regularization.
+##### A comparative approach for classification using dimensionality reduction and regularization in R.
+
+
 <!--
 ---
-[Random Forest classification of Traffic Accidents](/project_randfo)
-##### A co
-
----
 [Denoising heatmaps through regularization algorithms](/project_heat)
-##### A co
+##### A co  .... in Matlab
 -->
 
 ---

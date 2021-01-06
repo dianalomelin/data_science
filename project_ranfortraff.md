@@ -46,7 +46,7 @@ With the remaining features, we checked for correlation and only found one highl
 
 
 <div class="centered">
-<img src="images/ranfor/corr.jpg?raw=true" width="300" height="300">
+<img src="images/ranfor/corr.jpg?raw=true" width="500" height="500">
 </div>
 
 
@@ -54,7 +54,7 @@ With the remaining features, we checked for correlation and only found one highl
 We reviewed all continuous features and found that most of them had outliers present. However, since our dataset was already much more compact and our sample was only 0.3% of the original file, we decided to keep all data points to train and test our models and see what results we would get.
 
 <div class="centered">
-<img src="images/ranfor/outliers.JPG?raw=true" width="300" height="300">
+<img src="images/ranfor/outliers.JPG?raw=true" width="500" height="500">
 </div>
 
 **4. Imputation**
@@ -74,7 +74,7 @@ We processed all binary features and converted them to integer values since they
 We believe that the time of day an accident occurs as well as its duration can be important factors when predicting severity. To test this, we transformed the ‘Start_Time’ and ‘End_Time’ features into an ‘Hour’ feature to represent when the accident happened (0-23) and a ‘Duration’ feature calculated as (End_Time – Start_Time).
 
 <div class="centered">
-<img src="images/ranfor/features.jpg?raw=true" width="500" height="350">
+<img src="images/ranfor/features.JPG?raw=true" width="500" height="350">
 </div>
 
 **6. Interactions**
@@ -92,13 +92,9 @@ Our random forest model implements the OOB (Out-Of-Bag) algorithm that literatur
 
 ### 5. Model Fitting
 We implemented and compared the following models:
-1. Decision Tree (our implementation)
-2. Decision Tree from Scikit-learn
-To align the Scikit-learn model DecisionTreeClassifier to our model we used the following parameter:
-criterion='entropy'
-3. Random Forest (our implementation)
-4. Random Forest from Scikit-learn
-To resemble our implementation, we set the following parameters to Scikit-learn RandomForestClassifier:
+1.  Decision Tree from Scikit-learn
+2. Random Forest from Scikit-learn
+We set the following parameters to Scikit-learn RandomForestClassifier:
 bootstrap=True, criterion='entropy', oob_score = True
 
 
@@ -108,19 +104,19 @@ The following table shows the best accuracy achieved by each model after tuning 
 
 MODEL | FOREST SIZE | MAX DEPTH | ACCURACY
 --------- | ------------- | --------- | ----------
-Decision Tree |   0|5| 0.56
-Random Forest |  30|30|0.998
+Decision Tree |   0| 5| 0.585
+Random Forest |  30|30| 0.998
 
 We are satisfied that given our pre-processing of the data we were able to achieve 99.8% accuracy using Sci-kit learn’s implementation of random forest. This validates that we chose the correct model for this problem and pre-processed our data accordingly.
 
 2. Visualization of results
 
 <div class="centered">
-<img src="images/ranfor/chartDT.jpg?raw=true" width="300" height="300">
+<img src="images/ranfor/chartDT.jpg?raw=true" width="500" height="300">
 </div>
 
 <div class="centered">
-<img src="images/ranfor/chartRF.jpg?raw=true" width="300" height="300">
+<img src="images/ranfor/chartRF.jpg?raw=true" width="500" height="300">
 </div>
 
 Sci-kit learn’s implementation of random forest increased in accuracy as more trees were added to the forest and as more depth were added to each tree, up until a forest size of 30 and tree depth of 30. This is in line with our expectations of model behavior.
@@ -130,7 +126,7 @@ Sci-kit learn’s implementation of random forest increased in accuracy as more 
 Based on the feature analysis of the random forest, the most important feature is the Distance attribute accounting for 14% of the predictive power of the model. This attribute represents the length of road that was impacted by the accident in miles. To verify the impact of this attribute, we took an existing record from our test set that had a severity of 4 and a distance value of .81 and tested the prediction of our model on that same sample before and after reducing its distance to .1. Our model correctly predicted a severity of 4 before we changed the distance attribute of the sample. After reducing the distance attribute to .1, our model changed its prediction to a severity of 3, clearly showing that reducing the distance of an accident reduces its severity.
 
 <div class="centered">
-<img src="images/ranfor/importance.jpg?raw=true" width="300" height="300">
+<img src="images/ranfor/importance.jpg?raw=true" width="500" height="300">
 </div>
 
 ### 8. Evaluation and Final Results
@@ -145,5 +141,5 @@ o Consider implementing gini-index as an alternative for split criteria on Decis
 ### 9. Conclusions
 In summary, we built a Random Forest model to predict the severity of a traffic accident, taking into account 27 different features of the accident such as location, weather and length of road that was impacted. After pre-processing and balancing our data, we were able to tune a random forest model that achieved 99.8% accuracy. Our analysis found that the distance the accident covered was the best predictor of the severity of the accident, as well as the location (longitude/latitude), temperature, air pressure, humidity, time of day etc. The features identified in this analysis can be used by governments to help repair and design safer roadways, as well as help route finding algorithms construct optimal routes based on safety.
 
-You can find the code [here](/code/randforest).
+You can find the code [here](/code/randfortraff).
 
