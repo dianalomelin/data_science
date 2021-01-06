@@ -1,5 +1,5 @@
 <div class="centered">
-<img src="images/fashion.JPG?raw=true" style="width:100%">
+<img src="images/logo_pcabs.JPG?raw=true" style="width:100%">
 </div>
 
 ## PCA vs B-splines in a fashion data set
@@ -93,98 +93,98 @@ The following plots show the regularization for the reduced coefficients on each
 
 <div class="row">
   <div class="column" float="left" >
-    <img src="images/bsp0.png?raw=true" width="450" height="250">
+    <img src="images/bsppca/bsp0.png?raw=true" width="450" height="250">
   </div>
   <div class="column" float="left">
-    <img src="images/pca0.png?raw=true" width="450" height="250">
+    <img src="images/bsppca/pca0.png?raw=true" width="450" height="250">
   </div>
 
 </div>
 
 <div class="row">
   <div class="column" float="left" >
-    <img src="images/bsp1.png?raw=true" width="450" height="250">
+    <img src="images/bsppca/bsp1.png?raw=true" width="450" height="250">
   </div>
   <div class="column" float="left">
-    <img src="images/pca1.png?raw=true" width="450" height="250">
+    <img src="images/bsppca/pca1.png?raw=true" width="450" height="250">
   </div>
 
 </div>
 
 <div class="row">
   <div class="column" float="left" >
-    <img src="images/bsp2.png?raw=true" width="450" height="250">
+    <img src="images/bsppca/bsp2.png?raw=true" width="450" height="250">
   </div>
   <div class="column" float="left">
-    <img src="images/pca2.png?raw=true" width="450" height="250">
+    <img src="images/bsppca/pca2.png?raw=true" width="450" height="250">
   </div>
 
 </div>
 
 <div class="row">
   <div class="column" float="left" >
-    <img src="images/bsp3.png?raw=true" width="450" height="250">
+    <img src="images/bsppca/bsp3.png?raw=true" width="450" height="250">
   </div>
   <div class="column" float="left">
-    <img src="images/pca3.png?raw=true" width="450" height="250">
+    <img src="images/bsppca/pca3.png?raw=true" width="450" height="250">
   </div>
 
 </div>
 
 <div class="row">
   <div class="column" float="left" >
-    <img src="images/bsp4.png?raw=true" width="450" height="250">
+    <img src="images/bsppca/bsp4.png?raw=true" width="450" height="250">
   </div>
   <div class="column" float="left">
-    <img src="images/pca4.png?raw=true" width="450" height="250">
+    <img src="images/bsppca/pca4.png?raw=true" width="450" height="250">
   </div>
 
 </div>
 <div class="row">
   <div class="column" float="left" >
-    <img src="images/bsp5.png?raw=true" width="450" height="250">
+    <img src="images/bsppca/bsp5.png?raw=true" width="450" height="250">
   </div>
   <div class="column" float="left">
-    <img src="images/pca5.png?raw=true" width="450" height="250">
+    <img src="images/bsppca/pca5.png?raw=true" width="450" height="250">
   </div>
 
 </div>
 <div class="row">
   <div class="column" float="left" >
-    <img src="images/bsp6.png?raw=true" width="450" height="250">
+    <img src="images/bsppca/bsp6.png?raw=true" width="450" height="250">
   </div>
   <div class="column" float="left">
-    <img src="images/pca6.png?raw=true" width="450" height="250">
-  </div>
-
-</div>
-
-<div class="row">
-  <div class="column" float="left" >
-    <img src="images/bsp7.png?raw=true" width="450" height="250">
-  </div>
-  <div class="column" float="left">
-    <img src="images/pca7.png?raw=true" width="450" height="250">
+    <img src="images/bsppca/pca6.png?raw=true" width="450" height="250">
   </div>
 
 </div>
 
 <div class="row">
   <div class="column" float="left" >
-    <img src="images/bsp8.png?raw=true" width="450" height="250">
+    <img src="images/bsppca/bsp7.png?raw=true" width="450" height="250">
   </div>
   <div class="column" float="left">
-    <img src="images/pca8.png?raw=true" width="450" height="250">
+    <img src="images/bsppca/pca7.png?raw=true" width="450" height="250">
   </div>
 
 </div>
 
 <div class="row">
   <div class="column" float="left" >
-    <img src="images/bsp9.png?raw=true" width="450" height="250">
+    <img src="images/bsppca/bsp8.png?raw=true" width="450" height="250">
   </div>
   <div class="column" float="left">
-    <img src="images/pca9.png?raw=true" width="450" height="250">
+    <img src="images/bsppca/pca8.png?raw=true" width="450" height="250">
+  </div>
+
+</div>
+
+<div class="row">
+  <div class="column" float="left" >
+    <img src="images/bsppca/bsp9.png?raw=true" width="450" height="250">
+  </div>
+  <div class="column" float="left">
+    <img src="images/bsppca/pca9.png?raw=true" width="450" height="250">
   </div>
 
 </div>

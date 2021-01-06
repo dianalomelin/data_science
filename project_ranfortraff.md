@@ -46,7 +46,7 @@ With the remaining features, we checked for correlation and only found one highl
 
 
 <div class="centered">
-<img src="images/corr.jpg?raw=true" width="300" height="300">
+<img src="images/ranfor/corr.jpg?raw=true" width="300" height="300">
 </div>
 
 
@@ -54,7 +54,7 @@ With the remaining features, we checked for correlation and only found one highl
 We reviewed all continuous features and found that most of them had outliers present. However, since our dataset was already much more compact and our sample was only 0.3% of the original file, we decided to keep all data points to train and test our models and see what results we would get.
 
 <div class="centered">
-<img src="images/outliers.JPG?raw=true" width="300" height="150">
+<img src="images/ranfor/outliers.JPG?raw=true" width="300" height="150">
 </div>
 
 **4. Imputation**
@@ -74,14 +74,14 @@ We processed all binary features and converted them to integer values since they
 We believe that the time of day an accident occurs as well as its duration can be important factors when predicting severity. To test this, we transformed the ‘Start_Time’ and ‘End_Time’ features into an ‘Hour’ feature to represent when the accident happened (0-23) and a ‘Duration’ feature calculated as (End_Time – Start_Time).
 
 <div class="centered">
-<img src="images/features.JPG?raw=true" width="300" height="150">
+<img src="images/ranfor/features.JPG?raw=true" width="300" height="150">
 </div>
 
 **6. Interactions**
 When plotting the continuous features, we could not find any evident relationship that suggests an interaction term would be beneficial. We decided to keep all of our features linear.
 
 <div class="centered">
-<img src="images/pairwise.png?raw=true" width="300" height="300">
+<img src="images/ranfor/pairwise.png?raw=true" width="300" height="300">
 </div>
 
 **7. Experiments**
@@ -116,11 +116,11 @@ We are satisfied that given our pre-processing of the data we were able to achie
 2. Visualization of results
 
 <div class="centered">
-<img src="images/chartDT.jpg?raw=true" width="300" height="300">
+<img src="images/ranfor/chartDT.jpg?raw=true" width="300" height="300">
 </div>
 
 <div class="centered">
-<img src="images/chartRF.jpg?raw=true" width="300" height="300">
+<img src="images/ranfor/chartRF.jpg?raw=true" width="300" height="300">
 </div>
 
 Sci-kit learn’s implementation of random forest increased in accuracy as more trees were added to the forest and as more depth were added to each tree, up until a forest size of 30 and tree depth of 30. This is in line with our expectations of model behavior.
@@ -130,7 +130,7 @@ Sci-kit learn’s implementation of random forest increased in accuracy as more 
 Based on the feature analysis of the random forest, the most important feature is the Distance attribute accounting for 14% of the predictive power of the model. This attribute represents the length of road that was impacted by the accident in miles. To verify the impact of this attribute, we took an existing record from our test set that had a severity of 4 and a distance value of .81 and tested the prediction of our model on that same sample before and after reducing its distance to .1. Our model correctly predicted a severity of 4 before we changed the distance attribute of the sample. After reducing the distance attribute to .1, our model changed its prediction to a severity of 3, clearly showing that reducing the distance of an accident reduces its severity.
 
 <div class="centered">
-<img src="images/importance.jpg?raw=true" width="300" height="300">
+<img src="images/ranfor/importance.jpg?raw=true" width="300" height="300">
 </div>
 
 ### 8. Evaluation and Final Results
