@@ -33,10 +33,10 @@ When inspecting the dataset, we noted an imbalance with the following count of s
 
 Severity | Count
 --------- | -------------
-1 | 968
+1 |     968
 2 | 1993410
-3 | 887620
-4 | 92337
+3 |  887620
+4 |   92337
 Total | 2974335
 
 In order to balance the data, we first identified the smallest category, severity 1, and included all of those samples. Then we added additional samples from the population with severities of 2,3,4 until we had 10,000 samples total.
@@ -59,6 +59,7 @@ We reviewed all continuous features and found that most of them had outliers pre
 
 **4. Imputation**
 Since the raw data file had over 3 million records, we had more than enough data to train our model on without needing any imputation methods.
+
 **5. Variable Selection**
 Due to the presence of both continuous, and categorical features, we split our features into the following groups for preprocessing:
 * Response variable:
@@ -85,30 +86,64 @@ When plotting the continuous features, we could not find any evident relationshi
 
 **7. Experiments**
 Our experiments consist of varying the number of trees in our Random Forest implementation, as well as the maximum depth of the trees, influencing both Random Forest and Decision Tree models. We anticipate that both random forests and single decision trees would benefit from additional depth up to a certain point and that the random forests models should outperform the single decision trees on the test set.
+
 **8. Train-Validation-Test Set Split**
 Our random forest model implements the OOB (Out-Of-Bag) algorithm that literature suggests is nearly identical to that obtained by N-fold cross-validation. Scikit-learn allows hyperparameters to implement OOB and takes care of bootstrapping. For the single Decision Tree models, we used the train_test_split function and reported the accuracy by predicting labels on the test set.
 
+### 5. Model Fitting
+We implemented and compared the following models:
+1. Decision Tree (our implementation)
+2. Decision Tree from Scikit-learn
+To align the Scikit-learn model DecisionTreeClassifier to our model we used the following parameter:
+criterion='entropy'
+3. Random Forest (our implementation)
+4. Random Forest from Scikit-learn
+To resemble our implementation, we set the following parameters to Scikit-learn RandomForestClassifier:
+bootstrap=True, criterion='entropy', oob_score = True
 
 
+### 6. Model Validation
+1. Accuracy metrics
+The following table shows the best accuracy achieved by each model after tuning with the corresponding parameters:
 
-### 4. Conclusions
+MODEL | FOREST SIZE | MAX DEPTH | ACCURACY
+--------- | ------------- | --------- | ----------
+Decision Tree |   0|5| 0.56
+Random Forest |  30|30|0.998
 
-**Real-world epidemic studies**
+We are satisfied that given our pre-processing of the data we were able to achieve 99.8% accuracy using Sci-kit learn’s implementation of random forest. This validates that we chose the correct model for this problem and pre-processed our data accordingly.
 
-The SIR Model can be useful to approximate the spread of a disease, but is based on an ideal scenario and depends on certain assumptions that will not apply to a real-life situation where many other complex factors are present, for example:
-- Asymptomatic and mildly infectious people
-- Incubation periods
-- Different age groups with different immune responses
-- Traveling individuals, births and deaths
-- Hospital system capacity
-When facing a pandemic, normally only the more severe cases seek help, which delays the detection and severity of the spread since the milder cases won’t get officially diagnosed. This might lead to public alarm since the severe cases are more likely to result in deaths. There’s also the issue of lack of accurate testing and its distribution on new diseases. Undoubtedly, the timeline of confirmed cases will be dependent on local testing policies and availability.
-We can see the many challenges that a model will need to address to match official published numbers. But even if models are far from perfect, insights from mathematical modeling are vital
-to ensuring that authorities can prevent as many deaths as possible and take preventive measures to avoid healthcare systems becoming overwhelmed.
+2. Visualization of results
 
-**Future work**
+<div class="centered">
+<img src="images/chartDT.jpg?raw=true" width="300" height="300">
+</div>
 
-With our current model, we could update variables to admit a different population size, a higher probability of infection, more days of being infectious, more initial kids that are infectious on Day 1 and even a larger area of infectious spread.
-To improve the model, we could model weekends to allow for those 2 days of no exposure, we could expand to a larger physical area (beyond the 10 x 10 grid), and include compartments and attributes to model incubation periods, asymptomatic entities, traveling, mask use, etc. Another interesting experiment to model would be super-spreader events.
+<div class="centered">
+<img src="images/chartRF.jpg?raw=true" width="300" height="300">
+</div>
 
-You can find the ARENA code [here](/code/simulationflu/PandemicSchool.doe).
+Sci-kit learn’s implementation of random forest increased in accuracy as more trees were added to the forest and as more depth were added to each tree, up until a forest size of 30 and tree depth of 30. This is in line with our expectations of model behavior.
+
+
+### 7. Model Prediction
+Based on the feature analysis of the random forest, the most important feature is the Distance attribute accounting for 14% of the predictive power of the model. This attribute represents the length of road that was impacted by the accident in miles. To verify the impact of this attribute, we took an existing record from our test set that had a severity of 4 and a distance value of .81 and tested the prediction of our model on that same sample before and after reducing its distance to .1. Our model correctly predicted a severity of 4 before we changed the distance attribute of the sample. After reducing the distance attribute to .1, our model changed its prediction to a severity of 3, clearly showing that reducing the distance of an accident reduces its severity.
+
+<div class="centered">
+<img src="images/importance.jpg?raw=true" width="300" height="300">
+</div>
+
+### 8. Evaluation and Final Results
+It was surprising to find that the accuracy of Sci-kit learn’s implementation of single decision trees did not increase significantly when we added more depth. This can be explained by the additional depth leading to overfitting causing worse performance on the test sets. However, we are quite happy with the 99.8% accuracy score achieved by Sci-kit learn’s random forest, as well as the interpretable feature importance that allows us to clearly explain what factors impact the severity of accidents. Additionally, we were pleased to see that both of the transformed features that we came up with were among the top 10 most important features (Hour, Duration).
+The following are potential next steps that could be implemented in the future to expand upon our implementation:
+o Since the model performance was sensitive to sample dataset initialization, we could try several different samples.
+o Scale numerical features to see if it helps the algorithm to converge faster or perform better.
+o A broader variety of hyper parameter tuning.
+o Consider an implementation for pruning the tree to avoid overfitting.
+o Consider implementing gini-index as an alternative for split criteria on Decision Tree.
+
+### 9. Conclusions
+In summary, we built a Random Forest model to predict the severity of a traffic accident, taking into account 27 different features of the accident such as location, weather and length of road that was impacted. After pre-processing and balancing our data, we were able to tune a random forest model that achieved 99.8% accuracy. Our analysis found that the distance the accident covered was the best predictor of the severity of the accident, as well as the location (longitude/latitude), temperature, air pressure, humidity, time of day etc. The features identified in this analysis can be used by governments to help repair and design safer roadways, as well as help route finding algorithms construct optimal routes based on safety.
+
+You can find the code [here](/code/randforest).
 
