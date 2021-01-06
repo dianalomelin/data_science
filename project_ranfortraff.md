@@ -54,7 +54,7 @@ With the remaining features, we checked for correlation and only found one highl
 We reviewed all continuous features and found that most of them had outliers present. However, since our dataset was already much more compact and our sample was only 0.3% of the original file, we decided to keep all data points to train and test our models and see what results we would get.
 
 <div class="centered">
-<img src="images/ranfor/outliers.JPG?raw=true" width="300" height="150">
+<img src="images/ranfor/outliers.JPG?raw=true" width="300" height="300">
 </div>
 
 **4. Imputation**
@@ -74,14 +74,14 @@ We processed all binary features and converted them to integer values since they
 We believe that the time of day an accident occurs as well as its duration can be important factors when predicting severity. To test this, we transformed the ‘Start_Time’ and ‘End_Time’ features into an ‘Hour’ feature to represent when the accident happened (0-23) and a ‘Duration’ feature calculated as (End_Time – Start_Time).
 
 <div class="centered">
-<img src="images/ranfor/features.JPG?raw=true" width="300" height="150">
+<img src="images/ranfor/features.jpg?raw=true" width="500" height="350">
 </div>
 
 **6. Interactions**
 When plotting the continuous features, we could not find any evident relationship that suggests an interaction term would be beneficial. We decided to keep all of our features linear.
 
 <div class="centered">
-<img src="images/ranfor/pairwise.png?raw=true" width="300" height="300">
+<img src="images/ranfor/pairwise.jpg?raw=true" width="500" height="500">
 </div>
 
 **7. Experiments**
