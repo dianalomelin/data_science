@@ -98,3 +98,4 @@ To improve the model, we could model weekends to allow for those 2 days of no ex
 
 You can find the ARENA code [here](/code/simulationflu/PandemicSchool.doe).
 
+[Back](/index)

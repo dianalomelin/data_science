@@ -28,6 +28,7 @@ We chose to implement a Random Forest model to predict the severity of a traffic
 
 ### 4. Data Collection and Preprocessing
 After reviewing the available features from our dataset, we removed those that had no predictive power, such as ID, Source and TMC. We then decided to drop the features that had a high percentage (50% or more) of invalid inputs, for example, Wind_Chill and Precipitation. Additionally, we removed features that were very similar, such as the three Twilight features.
+
 **1. Balanced Sampling**
 When inspecting the dataset, we noted an imbalance with the following count of samples per ‘Severity’ value:
 
@@ -142,4 +143,6 @@ o Consider implementing gini-index as an alternative for split criteria on Decis
 In summary, we built a Random Forest model to predict the severity of a traffic accident, taking into account 27 different features of the accident such as location, weather and length of road that was impacted. After pre-processing and balancing our data, we were able to tune a random forest model that achieved 99.8% accuracy. Our analysis found that the distance the accident covered was the best predictor of the severity of the accident, as well as the location (longitude/latitude), temperature, air pressure, humidity, time of day etc. The features identified in this analysis can be used by governments to help repair and design safer roadways, as well as help route finding algorithms construct optimal routes based on safety.
 
 You can find the code [here](/code/randfortraff).
+
+[Back](/index)
 

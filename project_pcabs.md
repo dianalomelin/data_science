@@ -231,3 +231,4 @@ I'll be interesting to observe how the LASSO regularization alone performs as we
 
 You can find the R code [here](/code/pca_bsplines_classification_fashion.R).
 
+[Back](/index)

@@ -31,3 +31,4 @@ In order to obtain the raw twitter data for each of the 4 hashtags we chose to a
 
 For more detail on the sentiment model we used, please see https://github.com/cjhutto/vaderSentiment. 
 
+[Back](/index)
