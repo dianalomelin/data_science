@@ -112,11 +112,11 @@ We are satisfied that given our pre-processing of the data we were able to achie
 2. Visualization of results
 
 <div class="centered">
-<img src="images/ranfor/chartDT.jpg?raw=true" width="500" height="300">
+<img src="images/ranfor/chartDT.jpg?raw=true">
 </div>
 
 <div class="centered">
-<img src="images/ranfor/chartRF.jpg?raw=true" width="500" height="300">
+<img src="images/ranfor/chartRF.jpg?raw=true">
 </div>
 
 Sci-kit learn’s implementation of random forest increased in accuracy as more trees were added to the forest and as more depth were added to each tree, up until a forest size of 30 and tree depth of 30. This is in line with our expectations of model behavior.

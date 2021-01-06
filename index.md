@@ -24,7 +24,7 @@
 ---
 
 [Say What You Mean](/project_saywh.md)
-##### Visualizations for Sentiment Analysis on @realDonaldTrump Twitter account.
+##### Visualizations for Sentiment Analysis on @realDonaldTrump Twitter account using D3.
 
 ---
 [Tableau viz](http://public.tableau.com/profile/diana.lomelin)
