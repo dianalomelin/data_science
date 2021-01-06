@@ -74,7 +74,7 @@ We processed all binary features and converted them to integer values since they
 We believe that the time of day an accident occurs as well as its duration can be important factors when predicting severity. To test this, we transformed the ‘Start_Time’ and ‘End_Time’ features into an ‘Hour’ feature to represent when the accident happened (0-23) and a ‘Duration’ feature calculated as (End_Time – Start_Time).
 
 <div class="centered">
-<img src="images/ranfor/features.JPG?raw=true" width="500" height="350">
+<img src="images/ranfor/features.JPG?raw=true">
 </div>
 
 **6. Interactions**
