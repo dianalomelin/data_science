@@ -16,52 +16,38 @@ Every year in the United states, nearly 40,000 people lose their lives in care r
 
 ### 2. Data Source
 We selected a public dataset from Kaggle.com to train our model called US Accidents.
+
 https://www.kaggle.com/sobhanmoosavi/us-accidents
-File name: US_Accidents_Dec19.csv (1.05 GB - ~3M records)
+
+File name: US_Accidents_Dec19.csv (1.05 GB - ~3M records). 
 The dataset is a large-scale publicly available database that includes data on location, time, natural language description of event, weather, period-of-day, and relevant points-of-interest. 
 
 
-### 3. Output Analysis
-Our Agent Based model does not match the experiment of having 20 trials on the first day, since the entities move randomly inside the classroom, we cannot force a single contact time of Tommy with each kid per day. To approximate this behavior, we ran the simulation limiting it to 1 day, and found that keeping a Delay of 25 minutes will produce an average contact times (trials) of 20.6.
+### 3. Model Selection
+We chose to implement a Random Forest model to predict the severity of a traffic accident due to its ability to handle multi-class classification problems and its easily interpreted results. Our implementation makes use of the entropy method for information gain and uses the Out-Of-Bag (OOB) metric to determine accuracy for the model.
+
+### 4. Data Collection and Preprocessing
+After reviewing the available features from our dataset, we removed those that had no predictive power, such as ID, Source and TMC. We then decided to drop the features that had a high percentage (50% or more) of invalid inputs, for example, Wind_Chill and Precipitation. Additionally, we removed features that were very similar, such as the three Twilight features.
+1. Balanced Sampling
+When inspecting the dataset, we noted an imbalance with the following count of samples per ‘Severity’ value:
+
+table
+
+In order to balance the data, we first identified the smallest category, severity 1, and included all of those samples. Then we added additional samples from the population with severities of 2,3,4 until we had 10,000 samples total.
+
+2. Correlation
+With the remaining features, we checked for correlation and only found one highly correlated pair: ‘Bump’ and ‘Traffic_Calming’. We removed the ‘Traffic_Calming’ feature from our samples. It also showed that one of the binary features had no predicting power since all samples had the same value (‘Turning_Loop’) and so we removed that as well.
+
+##################################
+
 
 <div class="centered">
 <img src="images/sim/day1.jpg?raw=true" width="300" height="150">
 </div>
 
-We can observe that the infected number of kids is close to our formula above for Day 1, including Tommy: 1.4
-Similarly, if we run the simulation for only a couple of days, we obtain the following numbers. As before, we compare the average number of infected kids with our formula above, that gave us 1.94.
 
-<div class="centered">
-<img src="images/sim/day2.jpg?raw=true" width="300" height="150">
-</div>
 
-Running the simulation until there are no more Infectious or all kids have recovered:
 
-<div class="centered">
-<img src="images/sim/toend.jpg?raw=true" width="300" height="150">
-</div>
-
-We can observe that the average of infected and recovered kids is 5.16, and Susceptible kids that didn’t get sick average 15.84. The epidemic lasts 14.5 days maximum.
-The following figure shows the kids that are still infectious on a certain day. By day 4, we subtract Tommy, who has recovered after 3 days. By day 5 we remove the kids that got infected on day 1.
-
-<div class="centered">
-<img src="images/sim/perday.jpg?raw=true" width="400" height="250">
-</div>
-
-One advantage to modeling with agents is that our simulation allows for other experiments when updating the delay time, closer to a real-life situation where kids would have multiple contact times through the day. If kept at 5 minutes, all or mostly all kids get sick and recover by day 8 maximum. 
-
-<div class="centered">
-<img src="images/sim/5min.jpg?raw=true" width="300" height="150">
-</div>
-
-If increased to 10 minutes, the simulation ends with most Infectious that Recovered, and a few Susceptible that didn't get it.
-
-<div class="centered">
-<img src="images/sim/10min.jpg?raw=true" width="300" height="150">
-</div>
-
-Conversely, if we change the delay to once a day (for 6 hours of school – delay of 360 minutes), almost no one else gets infected (since the contact times reduce to 2 or less considering the 10 x 10 area), and the epidemic ends when Tommy recovers, without infecting anyone else.
-With the probability of success given, we expect roughly 100 contact times with an infectious for 2 kids to get infected. In any delay case, we observe that we get our first infectious (after Tommy) at around 65 contact times.
 
 ### 4. Conclusions
 
