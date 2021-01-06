@@ -211,10 +211,10 @@ as.table(cfm)
 
 <div class="row">
   <div class="column" float="left" >
-    <img src="images/cm_bsp.JPG?raw=true" width="450" height="250">
+    <img src="images/bsppca/cm_bsp.JPG?raw=true" width="450" height="250">
   </div>
   <div class="column" float="left">
-    <img src="images/cm_pca.JPG?raw=true" width="450" height="250">
+    <img src="images/bsppca/cm_pca.JPG?raw=true" width="450" height="250">
   </div>
 
 </div>
