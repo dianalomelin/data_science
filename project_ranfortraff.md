@@ -47,7 +47,7 @@ With the remaining features, we checked for correlation and only found one highl
 
 
 <div class="centered">
-<img src="images/ranfor/corr.jpg?raw=true" width="500" height="500">
+<img src="images/ranfor/corr.jpg?raw=true">
 </div>
 
 
