@@ -133,11 +133,11 @@ Based on the feature analysis of the random forest, the most important feature i
 ### 8. Evaluation and Final Results
 It was surprising to find that the accuracy of Sci-kit learn’s implementation of single decision trees did not increase significantly when we added more depth. This can be explained by the additional depth leading to overfitting causing worse performance on the test sets. However, we are quite happy with the 99.8% accuracy score achieved by Sci-kit learn’s random forest, as well as the interpretable feature importance that allows us to clearly explain what factors impact the severity of accidents. Additionally, we were pleased to see that both of the transformed features that we came up with were among the top 10 most important features (Hour, Duration).
 The following are potential next steps that could be implemented in the future to expand upon our implementation:
-o Since the model performance was sensitive to sample dataset initialization, we could try several different samples.
-o Scale numerical features to see if it helps the algorithm to converge faster or perform better.
-o A broader variety of hyper parameter tuning.
-o Consider an implementation for pruning the tree to avoid overfitting.
-o Consider implementing gini-index as an alternative for split criteria on Decision Tree.
+- Since the model performance was sensitive to sample dataset initialization, we could try several different samples.
+- Scale numerical features to see if it helps the algorithm to converge faster or perform better.
+- A broader variety of hyper parameter tuning.
+- Consider an implementation for pruning the tree to avoid overfitting.
+- Consider implementing gini-index as an alternative for split criteria on Decision Tree.
 
 ### 9. Conclusions
 In summary, we built a Random Forest model to predict the severity of a traffic accident, taking into account 27 different features of the accident such as location, weather and length of road that was impacted. After pre-processing and balancing our data, we were able to tune a random forest model that achieved 99.8% accuracy. Our analysis found that the distance the accident covered was the best predictor of the severity of the accident, as well as the location (longitude/latitude), temperature, air pressure, humidity, time of day etc. The features identified in this analysis can be used by governments to help repair and design safer roadways, as well as help route finding algorithms construct optimal routes based on safety.
