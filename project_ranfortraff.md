@@ -124,7 +124,7 @@ Sci-kit learn’s implementation of random forest increased in accuracy as more 
 
 
 ### 7. Model Prediction
-Based on the feature analysis of the random forest, the most important feature is the Distance attribute accounting for 14% of the predictive power of the model. This attribute represents the length of road that was impacted by the accident in miles. To verify the impact of this attribute, we took an existing record from our test set that had a severity of 4 and a distance value of .81 and tested the prediction of our model on that same sample before and after reducing its distance to .1. Our model correctly predicted a severity of 4 before we changed the distance attribute of the sample. After reducing the distance attribute to .1, our model changed its prediction to a severity of 3, clearly showing that reducing the distance of an accident reduces its severity.
+Based on the feature analysis of the random forest, the most important feature is the Distance attribute accounting for 10% of the predictive power of the model. This attribute represents the length of road that was impacted by the accident in miles. To verify the impact of this attribute, we took an existing record from our test set that had a severity of 4 and a distance value of .81 and tested the prediction of our model on that same sample before and after reducing its distance to .1. Our model correctly predicted a severity of 4 before we changed the distance attribute of the sample. After reducing the distance attribute to .1, our model changed its prediction to a severity of 3, clearly showing that reducing the distance of an accident reduces its severity.
 
 <div class="centered">
 <img src="images/ranfor/importance.jpg?raw=true" width="500" height="300">
