@@ -1,0 +1,19 @@
+  path.link {
+    fill: none;
+    
+  }
+  
+  
+  circle {
+    
+    stroke: #fff;
+    stroke: black;
+    
+  }
+  
+  
+  text {
+    fill: #000;
+    font: 10px sans-serif;
+    pointer-events: none;
+  }

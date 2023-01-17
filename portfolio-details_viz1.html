@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Portfolio Details</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i|Playfair+Display:400,400i,500,500i,600,600i,700,700i&subset=cyrillic" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
+    <!-- Force Directed Graph D3-->
+    <link href="assets/css/graph.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="assets/lib/d3.v5.min.js"></script>
+    <script type="text/javascript" src="assets/lib/d3-scale-chromatic.v1.min.js"></script>
+    <script type="text/javascript" src="assets/lib/d3-fetch.min.js"></script>
+    <script type="text/javascript" src="assets/lib/d3-simple-slider.min.js"></script>
+    <script type="text/javascript" src="assets/lib/d3-tip.min.js"></script>
+    <script type="text/javascript" src="assets/lib/topojson.v2.min.js"></script>
+
+
+
+  <!-- =======================================================
+  * Template Name: Lonely - v4.10.0
+  * Template URL: https://bootstrapmade.com/free-html-bootstrap-template-lonely/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="d-flex align-items-center">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <div class="logo">
+        <h1><a href="index.html">DIANA LOMELIN</a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+      </div>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto " href="index.html#hero">Home</a></li>
+          <li><a class="nav-link scrollto" href="index.html#about">About</a></li>
+          <li><a class="nav-link scrollto" href="index.html#resume">Resume</a></li>
+          <li><a class="nav-link scrollto" href="index.html#portfolio">Portfolio</a></li>
+          <li><a class="nav-link scrollto" href="index.html#services">Other Ventures</a></li>
+
+          <!--
+          <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="#">Drop Down 1</a></li>
+              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
+                <ul>
+                  <li><a href="#">Deep Drop Down 1</a></li>
+                  <li><a href="#">Deep Drop Down 2</a></li>
+                  <li><a href="#">Deep Drop Down 3</a></li>
+                  <li><a href="#">Deep Drop Down 4</a></li>
+                  <li><a href="#">Deep Drop Down 5</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Drop Down 2</a></li>
+              <li><a href="#">Drop Down 3</a></li>
+              <li><a href="#">Drop Down 4</a></li>
+            </ul>
+          </li>
+          -->
+
+          <li><a class="nav-link scrollto" href="index.html#contact">Contact</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+    
+
+
+  <main id="main">
+
+    <!-- ======= Breadcrumbs Section ======= -->
+    <section class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>Force Directed Graph with D3.js</h2>
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#portfolio">Portfolio</a></li>
+            <li>Force Directed Graph with D3.js</li>
+          </ol>
+        </div>
+
+      </div>
+    </section><!-- Breadcrumbs Section -->
+
+    <!-- ======= Portfolio Details Section ======= -->
+    <section id="portfolio-details" class="portfolio-details">
+      <div class="container">
+
+        <div class="row gy-4">
+
+
+          <div class="col-lg-8">
+
+                <div id="svgcontainer">
+                    <!--<svg width="1600" height="700"></svg>--> 
+                    
+    
+                </div>
+      
+
+          </div>
+        
+          
+
+          <div class="col-lg-4">
+            <div class="portfolio-info">
+              <h3>Project information</h3>
+              <ul>
+                <li><strong>Category</strong>: Visualization</li>
+                <li><strong>Type</strong>: HTML + CSS + D3.js</li>
+                <li><strong>Client/Purpose</strong>: To experiment with different aspects of the javascript D3 library for graph visualization: adding labels, styling edges, scaling nodes, pinning nodes</li>
+                <li><strong>Project date</strong>: February, 2020</li>
+                <li><strong>Project URL</strong>: <a href="https://github.com/dianalomelin">github</a></li>
+              </ul>
+            </div>
+            <div class="portfolio-description">
+              <h2>Exploring javascript D3 library with a Force Directed Graph</h2>
+              <p>
+               This was a simple but detailed experiment that included the following features: Adding labels to nodes, if the node is dragged, the label should follow. The edges should follow a style based on a field in the data array. The radius of each node was scaled based on the degree of the node (calculated), scale had an upper and lower limit.
+              </p>  
+              <p>
+                Also, the degree of each node is represented by varying colors (gradient): the darker colors represent higher degree, the lighter, lower. Node pinning was implemented and represented with a color change and back to unpin with a double click.
+              </p>
+              <p>
+              I hope you already played a bit with those dancing nodes by now. :)
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Portfolio Details Section -->
+
+  </main><!-- End #main -->
+
+
+
+
+  <script>
+
+
+    // get the data
+
+    
+     links =  [
+      {
+        "source": "Milwaukee Bucks",
+        "target": "Cleveland Cavaliers",
+        "value": 0
+      },
+      {
+        "source": "Milwaukee Bucks",
+        "target": "Sacramento Kings",
+        "value": 0
+      },
+      {
+        "source": "Detroit Pistons",
+        "target": "Philadelphia 76ers",
+        "value": 1
+      },
+      {
+        "source": "Cleveland Cavaliers",
+        "target": "Los Angeles Lakers",
+        "value": 1
+      },
+      {
+        "source": "Dallas Mavericks",
+        "target": "Houston Rockets",
+        "value": 1
+      },
+      {
+        "source": "Miami Heat",
+        "target": "San Antonio Spurs",
+        "value": 1
+      },
+      {
+        "source": "Miami Heat",
+        "target": "Los Angeles Lakers",
+        "value": 1
+      },
+      {
+        "source": "Brooklyn Nets",
+        "target": "Los Angeles Lakers",
+        "value": 1
+      },
+      {
+        "source": "Brooklyn Nets",
+        "target": "Houston Rockets",
+        "value": 1
+      },
+      {
+        "source": "Sacramento Kings",
+        "target": "Los Angeles Lakers",
+        "value": 1
+      },
+      {
+        "source": "Houston Rockets",
+        "target": "Golden State Warriors",
+        "value": 0
+      },
+      {
+        "source": "Los Angeles Lakers",
+        "target": "Los Angeles Clippers",
+        "value": 1
+      },
+      {
+        "source": "Sacramento Kings",
+        "target": "Philadelphia 76ers",
+        "value": 1
+      },
+      {
+        "source": "San Antonio Spurs",
+        "target": "Miami Heat",
+        "value": 0
+      },
+      {
+        "source": "Portand Trail Blazers",
+        "target": "Miami Heat",
+        "value": 0
+      },
+      {
+        "source": "Chicago Bulls",
+        "target": "Boston Celtics",
+        "value": 0
+      },
+      {
+        "source": "New York Knicks",
+        "target": "Golden State Warriors",
+        "value": 0
+      },
+      {
+        "source": "Denver Nuggets",
+        "target": "Golden State Warriors",
+        "value": 0
+      },
+      {
+        "source": "Portand Trail Blazers",
+        "target": "Golden State Warriors",
+        "value": 0
+      },
+      {
+        "source": "New York Knicks",
+        "target": "Denver Nuggets",
+        "value": 1
+      },
+      {
+        "source": "San Antonio Spurs",
+        "target": "Denver Nuggets",
+        "value": 0
+      },
+      {
+        "source": "Houston Rockets",
+        "target": "Denver Nuggets",
+        "value": 1
+      },
+      {
+        "source": "Portand Trail Blazers",
+        "target": "San Antonio Spurs",
+        "value": 1
+      },
+      {
+        "source": "Houston Rockets",
+        "target": "Brooklyn Nets",
+        "value": 0
+      },
+      {
+        "source": "Milwaukee Bucks",
+        "target": "Boston Celtics",
+        "value": 0
+      },
+      {
+        "source": "Golden State Warriors",
+        "target": "Milwaukee Bucks",
+        "value": 1
+      },
+      {
+        "source": "Golden State Warriors",
+        "target": "Atlanta Hawks",
+        "value": 1
+      },
+      {
+        "source": "Orlando Magic",
+        "target": "Memphis Grizzlies",
+        "value": 0
+      },
+      {
+        "source": "Washington Wizards",
+        "target": "New York Knicks",
+        "value": 1
+      },
+      {
+        "source": "Boston Celtics",
+        "target": "Orlando Magic",
+        "value": 1
+      },
+      {
+        "source": "Oklahoma City Thunder",
+        "target": "Sacramento Kings",
+        "value": 0
+      },
+      {
+        "source": "Boston Celtics",
+        "target": "Charlotte Hornets",
+        "value": 1
+      },
+      {
+        "source": "Boston Celtics",
+        "target": "Philadelphia 76ers",
+        "value": 1
+      },
+      {
+        "source": "Brooklyn Nets",
+        "target": "Miami Heat",
+        "value": 1
+      },
+      {
+        "source": "Indiana Pacers",
+        "target": "Chicago Bulls",
+        "value": 1
+      },
+      {
+        "source": "New York Knicks",
+        "target": "Boston Celtics",
+        "value": 0
+      },
+      {
+        "source": "Los Angeles Lakers",
+        "target": "Phoenix Suns",
+        "value": 0
+      },
+      {
+        "source": "Golden State Warriors",
+        "target": "Dallas Mavericks",
+        "value": 1
+      },
+      {
+        "source": "New Orleans Pelicans",
+        "target": "Indiana Pacers",
+        "value": 0
+      },
+      {
+        "source": "Milwaukee Bucks",
+        "target": "Brooklyn Nets",
+        "value": 0
+      },
+      {
+        "source": "Washington Wizards",
+        "target": "Portand Trail Blazers",
+        "value": 1
+      },
+      {
+        "source": "Utah Jazz",
+        "target": "Golden State Warriors",
+        "value": 1
+      },
+      {
+        "source": "Boston Celtics",
+        "target": "Utah Jazz",
+        "value": 1
+      },
+      {
+        "source": "Golden State Warriors",
+        "target": "Charlotte Hornets",
+        "value": 1
+      },
+      {
+        "source": "Boston Celtics",
+        "target": "Atlanta Hawks",
+        "value": 1
+      },
+      {
+        "source": "Philadelphia 76ers",
+        "target": "Boston Celtics",
+        "value": 0
+      }
+    ];
+    
+    
+    // Q2.c  scale and color gradient
+    var rScale = d3.scaleLinear()               
+        .range([1, 3.5]);
+    
+    var colorScale = d3.scaleQuantize() 
+        //.range(colorbrewer.YlGnBu[9])  //needs another library
+        .domain([0,10])
+        .range( ['#efedf5','#bcbddc','#756bb1','#5847b4']);
+                
+    
+    var nodes = {};
+    //console.log(nodes)
+    
+    // compute the distinct nodes from the links.
+    links.forEach(function(link) {
+        link.source = nodes[link.source] ||
+            (nodes[link.source] = {name: link.source});
+        link.target = nodes[link.target] ||
+            (nodes[link.target] = {name: link.target});
+    });
+    
+    
+    var toggle = 0;
+    
+    var w = 900,
+        h = 900;
+        margin = 100;
+        width = w - margin;
+        height = h - margin;
+    
+    var force = d3.forceSimulation()
+        .nodes(d3.values(nodes))
+        .force("link", d3.forceLink(links).distance(100))
+        .force('center', d3.forceCenter(width / 2, height / 2))
+        .force("x", d3.forceX())
+        .force("y", d3.forceY())
+        .force("charge", d3.forceManyBody().strength(-250))
+        .alphaTarget(0.3)
+        .on("tick", tick);
+    
+    //var svg = d3.select("body").append("svg")
+    var svg = d3.select("#svgcontainer").append("svg")
+    
+        .attr("width", width)
+        .attr("height", height);
+    
+    
+    
+    // add the links and the arrows
+    var path = svg.append("g")
+        .selectAll("path")
+        .data(links)
+        .enter()
+        .append("path")
+        .attr("class", function(d) { return "link " + d.type; })
+        
+        // Q2.b: define conditional link style 
+        .attr('stroke-dasharray',function(d) {
+          if(d.value === 1) {
+            return '5,5';
+          } else {
+            return null;  
+          }
+        })  
+        .attr('stroke', function(d) {
+          if(d.value === 1) {
+            return 'black';
+          } else {
+            return 'blue';
+          }
+        })
+        .attr('stroke-width', function(d) {
+          if(d.value === 1) {
+            return '1.5px';
+          } else {
+            return '4px';
+          } 
+        });
+        console.log("path");
+      console.log(path);
+        
+        
+    
+    // define the nodes
+    var node = svg.selectAll(".node")
+        .data(force.nodes())
+        .enter().append("g")
+        .attr("class", "node")
+        .on("dblclick", dblclick)   //Q2.d: double click
+        .call(d3.drag()
+            .on("start", dragstarted)
+            .on("drag", dragged)
+            .on("end", dragended));
+    
+    // add the nodes
+    // Q2.c: scale
+    node.append("circle")
+       .attr("r", function(d) {      
+         d.weight = path.filter(function(l) {
+           return l.source.index == d.index || l.target.index == d.index
+         }).size(); 
+         return rScale((d.weight));
+       });
+      
+      // Q2.c: color gradient
+      node.style("fill", function(d){ return colorScale(d.weight)})
+          .style("stroke-width", "1.5px");
+       
+       
+    
+    
+    // Q2.a: add labels
+    node.append('text')
+        .attr('dy',12)
+        .attr("text-anchor", "start")
+        .style('font-weight','bold') 
+        .text(function(d){
+          return d.name;
+        })   
+    
+    
+    //functions
+    // add the curvy lines
+    function tick() {
+        path.attr("d", function(d) {
+            var dx = d.target.x - d.source.x,
+                dy = d.target.y - d.source.y,
+                dr = Math.sqrt(dx * dx + dy * dy);
+            return "M" +
+                d.source.x + "," +
+                d.source.y + "A" +
+                dr + "," + dr + " 0 0,1 " +
+                d.target.x + "," +
+                d.target.y;
+        });
+    
+        node
+            .attr("transform", function(d) {
+            return "translate(" + d.x + "," + d.y + ")"; });
+            
+    };
+    //console.log(nodes);
+    
+    //Q2.d: double click
+    function dblclick(d) {
+    
+      if (d.toggle == undefined) {
+        d.toggle = 0;
+      } 
+    
+      if (d.toggle == 0) {
+            //Fix the node
+            d3.select(this).classed("fixed", d.fixed = true);
+            d.fx = d3.event.forceX;  //x jumps out of svg
+            d.fy = d3.event.forceY;
+            d3.select(this).style("fill", "orange");
+            d3.select(this).style("stroke-width", "3px");
+            d.toggle = 1;
+            //console.log('fixed ' + d.name + d.toggle+d.fixed);
+    
+        } else {
+            //Release node
+            d3.select(this).classed("fixed", d.fixed = false);
+            d.fx = null;
+            d.fy = null;
+            d3.select(this).style("fill", function(d){ return colorScale(d.weight)});
+            d3.select(this).style("stroke-width", "1.5px");
+            d.toggle = 0;
+            //console.log('unfixed ' + d.name + d.toggle+d.fixed);
+        }
+     
+      
+    };
+    
+    
+    function dragstarted(d) {
+        if (!d3.event.active) force.alphaTarget(0.3).restart();
+        d.fx = d.x;
+        d.fy = d.y;
+        
+    };
+    
+    function dragged(d) {
+        d.fx = d3.event.x;
+        d.fy = d3.event.y;
+    };
+    
+    function dragended(d) {
+        if (!d3.event.active) force.alphaTarget(0);
+        if (d.fixed == true) {
+            d.fx = d.x;
+            d.fy = d.y;
+        }
+        else {
+            d.fx = null;
+            d.fy = null;
+        }
+    };
+    
+    </script>
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Lonely</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/free-html-bootstrap-template-lonely/ -->
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
+    </div>
+  </footer><!-- End  Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
